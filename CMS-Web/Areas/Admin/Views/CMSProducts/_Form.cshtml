@@ -68,20 +68,15 @@
         <div class="form-group">
             <label class="control-label col-md-2 col-sm-2 col-xs-12 lineHeight">Thể loại</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-                @*@Html.DropDownListFor(model => model.CategoryId,
-                    new SelectList(ViewBag.Category, "Value", "Text", Model.CategoryId),
+                @Html.DropDownListFor(model => model.CategoryId,
+                    new SelectList(ViewBag.Category, "Value", "Text", Model.CategoryId),"Vui lòng chọn thể loại",
                     new
                     {
                         @class = "form-control select2_multiple",
                         @id = "CategoryDdl",
                         @style = "width:100%;"
                     })
-                   @Html.ValidationMessageFor(model => model.CategoryId, null, new { @class = "label label-danger" })*@
-
-                <select name="CategoryId" id="CategoryDdl" class="form-control list-stores-group" style="width:100%">
-                    <option disabled selected value="">[Vui lòng chọn thể loại]</option>
-                </select>
-                @Html.ValidationMessageFor(model => model.CategoryId, null, new { @class = "validateLevel label label-danger" })
+                   @Html.ValidationMessageFor(model => model.CategoryId, null, new { @class = "label label-danger" })
             </div>
         </div>
 
@@ -129,18 +124,12 @@
 </div>
 <script src="@Url.Content("~/Scripts/InputCustom.js")"></script>
 <script type="text/javascript">
-    //Variable
-    var StoreId = '@Model.CategoryId';
+
     $(document).ready(function () {
         $("#CategoryDdl").select2({
-            placeholder: "Làm ơn chọn thể loại",
+            placeholder: "Vui lòng chọn thể loại",
             //allowClear: true
         });
-
-        $('.list-stores-group').select2({
-            data: @Html.Raw(Json.Encode(ViewBag.Category)),
-        });
-        $(".list-stores-group").select2().val(StoreId).trigger('change.select2');
     });
 
     function showPictureUpload() {

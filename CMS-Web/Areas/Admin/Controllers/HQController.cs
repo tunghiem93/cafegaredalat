@@ -13,7 +13,7 @@ namespace CMS_Web.Areas.Admin.Controllers
         public List<SelectListItem> GetListCategorySelectItem()
         {
             var _factory = new CMSCategoriesFactory();
-            var data = _factory.GetList().Where(x => string.IsNullOrEmpty(x.ParentId)).Select(x => new SelectListItem
+            var data = _factory.GetList().Select(x => new SelectListItem
             {
                 Value = x.Id,
                 Text = x.CategoryName,

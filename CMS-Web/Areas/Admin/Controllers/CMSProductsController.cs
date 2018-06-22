@@ -21,7 +21,7 @@ namespace CMS_Web.Areas.Admin.Controllers
         public CMSProductsController()
         {
             _factory = new CMSProductFactory();
-            ViewBag.Category = GetListCategory();
+            ViewBag.Category = GetListCategorySelectItem();
         }
         // GET: Admin/CMSCategories
         public ActionResult Index()
