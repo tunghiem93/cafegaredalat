@@ -13,9 +13,9 @@ namespace CMS_Entity
 {
     public class CMS_Context : DbContext
     {
-        public CMS_Context() : base("CMS_WEB")
+        public CMS_Context() : base("name=CMS_Context")
         {
-            Database.SetInitializer<CMS_Context>(new CreateDatabaseIfNotExists<CMS_Context>());
+            Database.SetInitializer<CMS_Context>(new ContextHandler());
             ((IObjectContextAdapter)this).ObjectContext.ContextOptions.LazyLoadingEnabled = true;
         }
 
