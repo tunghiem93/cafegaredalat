@@ -26,6 +26,7 @@ namespace CMS_Entity
         public virtual DbSet<CMS_News> CMS_News { get; set; }
         public virtual DbSet<CMS_Images> CMS_Images { get; set; }
         public virtual DbSet<CMS_Customers> CMS_Customers { get; set; }
+        public virtual DbSet<CMS_Companies> CMS_Companies { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             var typesToRegister = Assembly.GetExecutingAssembly().GetTypes()
