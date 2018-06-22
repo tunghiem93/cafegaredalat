@@ -23,7 +23,7 @@
         </div>
     </div>
 
-    <div class="form-group">
+    @*<div class="form-group">
         <label class="control-label col-md-2 col-sm-2 col-xs-12 lineHeight fontLighter">Thể loại cha</label>
         <div class="col-md-6 col-sm-6 col-xs-12">
             @Html.DropDownListFor(model => model.ParentId,
@@ -35,27 +35,6 @@
                 @style = "width:100%;"
             })
             @Html.ValidationMessageFor(model => model.ParentId, null, new { @class = "label label-danger" })
-        </div>
-    </div>
-    @*Image*@
-    @*<div class="form-group">
-        <label class="control-label col-md-2 col-sm-2 col-xs-12 lineHeight fontLighter">Image</label>
-        <div class="col-md-2 col-sm-2 col-xs-12">
-            @if (!string.IsNullOrEmpty(Model.ImageURL))
-            {
-                <img id="upload-preview" src="@Model.ImageURL" height="100" width="200" class="" />
-            }
-            else
-            {
-                <img id="upload-preview" class="" src="@Commons.Image200_100" height="100" width="200" />
-            }
-        </div>
-        <div class="col-md-1 col-sm-3 col-xs-12" style="line-height:55px;">
-            <div class="upload-btn-wrapper" style="cursor:pointer;">
-                <button class="btn btn-default" type="button" onclick="showPictureUpload();" style="margin-top:-6%;margin-left:50px">Add/Edit</button>
-                @Html.TextBoxFor(model => model.PictureUpload, new { @type = "file", @onchange = "PreviewImage(this,\"upload-preview\")", @accept = "*.jpg", @class = "hidden", @id = "urlImage" })
-            </div>
-            @Html.ValidationMessageFor(model => model.PictureUpload, null, new { @class = "label label-danger" })
         </div>
     </div>*@
 
