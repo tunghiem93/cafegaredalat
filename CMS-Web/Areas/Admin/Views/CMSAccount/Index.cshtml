@@ -43,10 +43,9 @@
     <!-- BEGIN LOGIN -->
     <div class="content">
         <!-- BEGIN LOGIN FORM -->
-        <form class="login-form" action="index.html" method="post">
-            @using (Html.BeginForm(new { @returnUrl = @Model.ReturnUrl }))
+        @using (Html.BeginForm(new { @returnUrl = @Model.ReturnUrl }))
             {
-                <h3 class="form-title font-green">Login</h3>
+            <h3 class="form-title font-green">Login</h3>
                 <div class="alert alert-danger display-hide">
                     <button class="close" data-close="alert"></button>
                     <span> Enter user and password. </span>
@@ -102,8 +101,7 @@
                             </li>
                         </ul>
                     </div>*@
-            }
-        </form>
+        }
         <!-- END LOGIN FORM -->
         <!-- BEGIN FORGOT PASSWORD FORM -->
         <form class="forget-form" action="#" method="post">
