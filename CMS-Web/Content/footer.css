@@ -1,0 +1,64 @@
+
+.col-lg-3:nth-child(2) .single-footer-widget {padding-left: 48px;}
+.single-footer-widget > h3 {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 14px;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+}
+.single-footer-widget > p {color: #ffffff;}
+.c-info {
+    color: #ffffff;
+    display: block;
+    line-height: 24px;
+    margin-bottom: 10px;
+}
+.c-info i {font-size: 16px; width: 34px;}
+.single-footer-widget > p.margin {margin-bottom: 24px;}
+.open-time {
+    color: #ffffff;
+    display: block;
+    line-height: 27px;
+}
+.open-time:nth-child(3) {padding-top: 5px;}
+#mc-form > input {
+    color: #eaeaea;
+    font-size: 13px;
+    height: 38px;
+    margin-bottom: 20px;
+    margin-top: 6px;
+    padding: 0 17px;
+}
+.newsletter-form input#mc-email::-moz-placeholder {color: #eaeaea;} 
+.newsletter-form input[type="email"]::-webkit-input-placeholder {color: #eaeaea;}
+#mc-form .default-btn {
+    background: #ffffff none repeat scroll 0 0;
+    color: #614a3d;
+    font-size: 14px;
+    height: 38px;
+    line-height: 36px;
+    padding: 0 52px;
+}
+#mc-form .default-btn:before {background: #614a3d none repeat scroll 0 0;}
+.footer-links > a {
+    color: #ffffff;
+    display: inline-block;
+    font-size: 16px;
+    height: 27px;
+    line-height: 26px;
+    margin: 0 3px;
+    text-align: center;
+    width: 26px;
+}
+.footer-links > a:hover {
+    background: #ffffff none repeat scroll 0 0;
+    color: #614a3d;
+}
+.footer-links > a:first-child {margin-left: 0;}
+.footer-links {padding-top: 24px;}
+.mailchimp-alerts {color: #ffffff; padding-top: 15px;}
+.footer-text > span {display: block; line-height: 20px;}
+.footer-text, .footer-text a {color: #fff}
+.footer-text a:hover {border-bottom: 1px solid #fff}

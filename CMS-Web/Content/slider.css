@@ -1,0 +1,105 @@
+
+.slider-area {position: relative; overflow: hidden;}
+.slider-area img {width: 100%;}
+.slider-area, .banner-content,.single-slide, .owl-item, .owl-stage, .slider-wrapper, .owl-stage-outer, .banner-content .container, .banner-content .row, .banner-content .col-lg-8, .banner-content .text-content-wrapper, .banner-content .text-content, .banner-content .display-table, .banner-content .display-table-cell{
+    height: 100%;
+} 
+.text-content-wrapper, .slider-area img {width: 100%;}
+.banner-content .text-content-wrapper {display: table;}
+.banner-content .text-content {
+    display: table-cell;
+    vertical-align: middle;
+}
+.banner-btn {
+    clear: both;
+    display: block;
+}
+.banner-btn a {
+  background: #ffffff none repeat scroll 0 0;
+  color: #614a3d;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 44px;
+  overflow: hidden;
+  padding: 0 27px;
+  position: relative;
+  text-transform: uppercase;
+  -webkit-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+}
+.banner-btn a:before {
+    background-color: rgba(97, 74, 61, 1);
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    position: absolute;
+    top: 0;
+    -webkit-transform: scale(0.5, 1);
+            transform: scale(0.5, 1);
+    -webkit-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s;
+    width: 100%;
+    z-index: 1;
+}
+.banner-btn a span {z-index: 2 ;position: relative}
+.banner-btn a:hover span, .banner-btn a:focus span, .banner-btn a:active span {color: #fff;}
+.banner-btn a:hover:before, .banner-btn a:focus:before, .banner-btn a:active:before {
+    opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+}
+.slider-area .button-default{display: inline;}
+
+.banner-content h3 {
+  color: #ffffff;
+  font-family: "Courgette",cursive;
+  font-size: 40px;
+  margin-bottom: 30px;
+  text-transform: capitalize;
+}
+.banner-content h1 {
+  color: #ffffff;
+  font-size: 60px;
+  margin-bottom: 36px;
+}
+.banner-content p {
+  color: #ffffff;
+  font-size: 16px;
+  margin-bottom: 45px;
+  padding: 0 54px;
+}
+.slider-area .owl-item.active .banner-content h3, .slider-area .owl-item.active .banner-content h1, .slider-area .owl-item.active .banner-content p, .slider-area .owl-item.active .banner-content .banner-btn{
+    -webkit-animation: 1000ms ease-in-out 0s normal both 1 running fadeInUp;
+            animation: 1000ms ease-in-out 0s normal both 1 running fadeInUp;
+} 
+.slider-area .owl-item.active .banner-content h3 {-webkit-animation-delay: 600ms;animation-delay: 600ms} 
+.slider-area .owl-item.active .banner-content h1 {-webkit-animation-delay: 1100ms;animation-delay: 1100ms} 
+.slider-area .owl-item.active .banner-content p {-webkit-animation-delay: 1600ms;animation-delay: 1600ms} 
+.slider-area  .owl-item.active .banner-content .banner-btn {
+    -webkit-animation-delay: 2100ms;animation-delay: 2100ms
+} 
+.owl-nav div {
+    background: #ffffff none repeat scroll 0 0;
+    color: #614a3d;
+    font-size: 30px;
+    height: 40px;
+    left: -46px;
+    line-height: 40px;
+    margin-top: -20px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    -webkit-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s;
+    width: 40px;
+    z-index: 999;
+}
+.owl-nav .owl-next {left: auto; right: -46px;}
+.slider-area:hover .owl-nav div {left: 0;}
+.slider-area:hover .owl-nav .owl-next {left: auto;  right: 0;}
+.owl-nav div:hover{background: #614a3d; color: #fff}
+.single-slide{background-position: top center; background-size: cover}
