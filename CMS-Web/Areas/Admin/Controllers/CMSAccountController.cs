@@ -2,6 +2,8 @@
 using CMS_DTO.Models;
 using CMS_Shared.Factory;
 using CMS_Web.Web.App_Start;
+using Microsoft.AspNet.Identity;
+using Microsoft.Owin.Security;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,7 +14,7 @@ using System.Web.Routing;
 
 namespace CMS_Web.Areas.Admin.Controllers
 {
-    [NuAuth]
+    //[NuAuth]
     public class CMSAccountController : Controller
     {
         // GET: Administration/Login
@@ -113,6 +115,22 @@ namespace CMS_Web.Areas.Admin.Controllers
             catch (Exception ex)
             {
                 return new HttpStatusCodeResult(400, ex.Message);
+            }
+        }
+
+        public ActionResult Logout()
+        {
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            if(HttpContext.Session != null && HttpContext.Session["User"] != null)
+                HttpContext.Session.Remove("User");
+            return RedirectToAction("Index", "CMSAccount");
+        }
+
+        private IAuthenticationManager AuthenticationManager
+        {
+            get
+            {
+                return HttpContext.GetOwinContext().Authentication;
             }
         }
     }
