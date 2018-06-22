@@ -145,6 +145,10 @@ namespace CMS_Web.Areas.Admin.Controllers
                 {
                     if (!string.IsNullOrEmpty(model.ImageURL) && model.PictureByte != null)
                     {
+                        if (!string.IsNullOrEmpty(temp))
+                        {
+                            temp = temp.Replace(Commons._PublicImages, "").Replace(Commons.Image200_100, "");
+                        }
                         if (System.IO.File.Exists(Server.MapPath(temp)))
                         {
                             ImageHelper.Me.TryDeleteImageUpdated(Server.MapPath(temp));
