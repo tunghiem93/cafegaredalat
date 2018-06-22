@@ -13,7 +13,7 @@ using System.Web.Mvc;
 
 namespace CMS_Web.Areas.Admin.Controllers
 {
-    //[NuAuth]
+    [NuAuth]
     public class HomeController : Controller
     {
         // GET: Admin/Home
