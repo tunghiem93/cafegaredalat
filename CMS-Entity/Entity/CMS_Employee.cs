@@ -11,12 +11,17 @@ namespace CMS_Entity.Entity
         public string Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string Level { get; set; }
         public string Employee_Address { get; set; }
         public string Employee_Phone { get; set; }
         public string Employee_Email { get; set; }
         public string Employee_IDCard { get; set; }
         public DateTime BirthDate { get; set; }
         public string Password { get; set; }
+        public string LinkBlog { get; set; }
+        public string LinkFB { get; set; }
+        public string LinkTwiter { get; set; }
+        public string LinkInstagram { get; set; }
         public string ImageURL { get; set; }
         public bool IsSupperAdmin { get; set; }
 

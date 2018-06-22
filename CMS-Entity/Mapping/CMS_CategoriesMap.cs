@@ -19,6 +19,7 @@ namespace CMS_Entity.Mapping
             this.Property(x => x.UpdatedBy).HasMaxLength(60).IsOptional().HasColumnType("varchar");
             this.Property(x => x.CreatedBy).HasMaxLength(60).IsOptional().HasColumnType("varchar");
             this.Property(x => x.UpdatedDate).IsOptional();
+            this.Property(x => x.ImageURL).IsOptional().HasColumnType("varchar").HasMaxLength(60);
             this.Property(x => x.ParentId).HasColumnType("varchar").HasMaxLength(60).IsOptional();
         }
     }

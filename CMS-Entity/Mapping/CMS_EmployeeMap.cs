@@ -21,10 +21,14 @@ namespace CMS_Entity.Mapping
             this.Property(x => x.BirthDate).IsOptional();
             this.Property(x => x.Employee_Email).HasMaxLength(250).IsRequired().HasColumnType("varchar");
             this.Property(x => x.Employee_Address).IsOptional().HasMaxLength(250).HasColumnType("nvarchar");
-            this.Property(x => x.UpdatedBy).HasMaxLength(60).HasColumnType("varchar").IsOptional();
-            this.Property(x => x.CreatedBy).HasMaxLength(60).HasColumnType("varchar").IsOptional();
+            this.Property(x => x.LinkBlog).HasMaxLength(250).HasColumnType("varchar").IsOptional();
+            this.Property(x => x.LinkFB).HasMaxLength(250).HasColumnType("varchar").IsOptional();
+            this.Property(x => x.LinkTwiter).HasMaxLength(250).HasColumnType("varchar").IsOptional();
+            this.Property(x => x.LinkInstagram).HasMaxLength(250).HasColumnType("varchar").IsOptional();
             this.Property(x => x.Password).IsRequired().HasMaxLength(250).HasColumnType("varchar");
             this.Property(x => x.ImageURL).IsOptional().HasColumnType("varchar").HasMaxLength(60);
+            this.Property(x => x.UpdatedBy).HasMaxLength(60).HasColumnType("varchar").IsOptional();
+            this.Property(x => x.CreatedBy).HasMaxLength(60).HasColumnType("varchar").IsOptional();
         }
     }
 }
