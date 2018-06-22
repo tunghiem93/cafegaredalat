@@ -1,5 +1,6 @@
 ﻿using CMS_DTO.CMSHome;
 using CMS_Shared;
+using CMS_Shared.CMSCompanies;
 using CMS_Shared.Utilities;
 using CMS_Web.Web.App_Start;
 using System;
@@ -16,6 +17,8 @@ namespace CMS_Web.Areas.Admin.Controllers
     [NuAuth]
     public class HomeController : Controller
     {
+        CMSCompaniesFactory _comFac = new CMSCompaniesFactory();
+
         // GET: Admin/Home
         public ActionResult Index()
         {
@@ -53,6 +56,12 @@ namespace CMS_Web.Areas.Admin.Controllers
                         }  
                     }
                 }
+
+
+                /* get com info */
+                var listCom = _comFac.GetList();
+                if (listCom != null)
+                    model.ComInfo = listCom.FirstOrDefault();
             }
             catch (Exception ex) { }
             return View(model);
