@@ -30,7 +30,18 @@
     <link href="@Url.Content("~/Content/responsive.css")" rel="stylesheet" />
 </head>
 <body>
-    @RenderBody()
+    <div class="">
+        <div id="" class="fixed">
+            @Html.Partial("_header")
+        </div>
+        <div class="">
+            @RenderBody()
+        </div>
+        <!--Footer-->
+        <div class="footer-area">
+            @Html.Partial("_footer")
+        </div>
+    </div>
     <a href="#" class="scroll_top" title="Scroll to Top" style="display: none;">Scroll</a>
 </body>
 </html>
