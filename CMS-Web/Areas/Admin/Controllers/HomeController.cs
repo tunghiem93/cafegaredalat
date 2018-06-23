@@ -226,7 +226,7 @@ namespace CMS_Web.Areas.Admin.Controllers
                 }
             }
 
-            return RedirectToAction("Index");
+            return PartialView("_Slider", model);
         }
     }
 }
