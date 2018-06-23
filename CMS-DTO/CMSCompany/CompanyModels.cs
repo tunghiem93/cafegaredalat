@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
-namespace CMS_DTO.CMSCustomer
+namespace CMS_DTO.CMSCompany
 {
     public class CompanyModels
     {
@@ -26,6 +26,7 @@ namespace CMS_DTO.CMSCustomer
 
         [DataType(DataType.Upload)]
         public HttpPostedFileBase PictureUpload { get; set; }
+        public byte[] PictureByte { get; set; }
         //[Required(ErrorMessage = "Làm ơn nhập họ!")]
         //public string FirstName { get; set; }
 

@@ -1,4 +1,5 @@
-﻿using CMS_DTO.CMSHome;
+﻿using CMS_DTO.CMSCompany;
+using CMS_DTO.CMSHome;
 using CMS_Shared;
 using CMS_Shared.CMSCompanies;
 using CMS_Shared.Utilities;
@@ -17,7 +18,7 @@ namespace CMS_Web.Areas.Admin.Controllers
     [NuAuth]
     public class HomeController : Controller
     {
-        CMSCompaniesFactory _comFac = new CMSCompaniesFactory();
+        CMSCompaniesFactory _factory = new CMSCompaniesFactory();
 
         // GET: Admin/Home
         public ActionResult Index()
@@ -30,7 +31,7 @@ namespace CMS_Web.Areas.Admin.Controllers
 
                 if (list != null && list.Count > 0)
                 {
-                   // var index = 1;
+                    // var index = 1;
                     for (var i = 0; i < list.Count; i++)
                     {
                         switch (i)
@@ -53,15 +54,17 @@ namespace CMS_Web.Areas.Admin.Controllers
                             case 5:
                                 model.Silder.ImageURL6 = list[i];
                                 break;
-                        }  
+                        }
                     }
                 }
 
 
                 /* get com info */
-                var listCom = _comFac.GetList();
-                if (listCom != null)
+                var listCom = _factory.GetList();
+                if (listCom != null && listCom.Count > 0)
                     model.ComInfo = listCom.FirstOrDefault();
+                else
+                    model.ComInfo = new CompanyModels();
             }
             catch (Exception ex) { }
             return View(model);
@@ -97,7 +100,7 @@ namespace CMS_Web.Areas.Admin.Controllers
                     ms.Write(imgByte, 0, imgByte.Length);
                     System.Drawing.Image imageTmp = System.Drawing.Image.FromStream(ms, true);
                     photoByte = null;
-                    ImageHelper.Me.SaveCroppedImage(imageTmp, path, model.Silder.ImageURL1, ref photoByte,400,Commons.WidthImageSilder,Commons.HeightImageSilder);
+                    ImageHelper.Me.SaveCroppedImage(imageTmp, path, model.Silder.ImageURL1, ref photoByte, 400, Commons.WidthImageSilder, Commons.HeightImageSilder);
                 }
             }
 
@@ -227,6 +230,49 @@ namespace CMS_Web.Areas.Admin.Controllers
             }
 
             return PartialView("_Slider", model);
+        }
+
+        [HttpPost]
+        public ActionResult UpdateCompanyInfo(CMSHomeModels model)
+        {
+            byte[] photoByte = null;
+            if (!ModelState.IsValid)
+            {
+                Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                return RedirectToAction("Index");
+            }
+
+            if (model.ComInfo.PictureUpload != null && model.ComInfo.PictureUpload.ContentLength > 0)
+            {
+                Byte[] imgByte = new Byte[model.ComInfo.PictureUpload.ContentLength];
+                model.ComInfo.PictureUpload.InputStream.Read(imgByte, 0, model.ComInfo.PictureUpload.ContentLength);
+                model.ComInfo.PictureByte = imgByte;
+                model.ComInfo.ImageURL = Guid.NewGuid() + Path.GetExtension(model.ComInfo.PictureUpload.FileName);
+                model.ComInfo.PictureUpload = null;
+                photoByte = imgByte;
+            }
+
+            var msg = "";
+            var result = _factory.CreateOrUpdate(model.ComInfo, ref msg);
+            if (result)
+            {
+                if (!string.IsNullOrEmpty(model.ComInfo.ImageURL) && model.ComInfo.PictureByte != null)
+                {
+                    var path = Server.MapPath("~/Uploads/" + model.ComInfo.ImageURL);
+                    MemoryStream ms = new MemoryStream(photoByte, 0, photoByte.Length);
+                    ms.Write(photoByte, 0, photoByte.Length);
+                    System.Drawing.Image imageTmp = System.Drawing.Image.FromStream(ms, true);
+
+                    ImageHelper.Me.SaveCroppedImage(imageTmp, path, model.ComInfo.ImageURL, ref photoByte);
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("CompanyError", msg);
+                Response.StatusCode = (int)HttpStatusCode.BadRequest;
+            }
+
+            return PartialView("_CompanyInfo", model);
         }
     }
 }

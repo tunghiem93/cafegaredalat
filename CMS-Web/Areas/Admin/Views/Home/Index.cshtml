@@ -1,13 +1,9 @@
 ﻿
 @model CMS_DTO.CMSHome.CMSHomeModels
 @using CMS_Shared
+
 @{
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
-    var ComInfo = Model.ComInfo;
-    if (ComInfo == null)
-    {
-        ComInfo = new CMS_DTO.CMSCustomer.CompanyModels();
-    }
 }
 @{
     ViewBag.Title = "Trang chủ";
@@ -41,74 +37,22 @@
                         <div class="row form-horizontal form-label-left" style="margin-bottom:15px;">
                             <fieldset>
                                 <legend>THÔNG TIN CÔNG TY</legend>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12 lineHeight fontLighter">Avartar</label>
-                                    <div class="col-md-2 col-sm-2 col-xs-12">
-                                        @if (!string.IsNullOrEmpty(ComInfo.ImageURL))
-                                        {
-                                            <img id="upload-preview" src="@ComInfo.ImageURL" height="100" width="100" class="" style="border-radius:100% !important" />
-                                        }
-                                        else
-                                        {
-                                            <img id="upload-preview" class="" src="@Commons.Image200_100" height="100" width="100" style="border-radius:100% !important" />
-                                        }
-                                    </div>
-                                    <div class="col-md-1 col-sm-3 col-xs-12" style="line-height:55px;">
-                                        <div class="upload-btn-wrapper" style="cursor:pointer;">
-                                            <button class="btn btn-default" type="button" onclick="showPictureUpload();" style="margin-top:-6%;margin-left:50px">Chọn hình</button>
-                                            @Html.TextBoxFor(model => model.ComInfo.PictureUpload, new { @type = "file", @onchange = "PreviewImage(this,\"upload-preview\")", @accept = "*.jpg", @class = "hidden", @id = "urlImage" })
-                                        </div>
-                                        @Html.ValidationMessageFor(model => model.ComInfo.PictureUpload, null, new { @class = "label label-danger" })
-                                    </div>
-                                </div>
 
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12 fontLighter">Tên công ty:</label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <label style="margin-top:1%">@ComInfo.Name</label>
-                                    </div>
+                                <div class="row text-right" style="margin-right:0px !important">
+                                    <ul class="header-buttons pull-right list-inline">
+                                        <li>
+                                            <a href="javascript:void(0);" class="btn btn-success" id="btn-edit-save" onclick="SubmitForm('.form-edit-com')">
+                                                <i class="fa fa-save"></i>
+                                                &nbsp;Lưu
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
-                                
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12 fontLighter">Mô tả:</label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <label style="margin-top:1%">@ComInfo.Description</label>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12 fontLighter">Email:</label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <label style="margin-top:1%">@ComInfo.Email</label>
-                                    </div>
-                                </div>
-
-
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12 fontLighter">Phone:</label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <label style="margin-top:1%">@ComInfo.Phone</label>
-                                    </div>
-                                </div>
-
-
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12 fontLighter">Địa chỉ:</label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <label style="margin-top:1%">@ComInfo.Address</label>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12 fontLighter">Mạng xã hội: </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <label style="margin-top:1%">
-                                            <a href="@ComInfo.LinkFB" class="fa fa-social fa-facebook"></a>
-                                            <a href="@ComInfo.LinkTwiter" class="fa fa-social fa-twitter"></a>
-                                            <a href="@ComInfo.LinkInstagram" class="fa fa-social fa-instagram"></a>
-                                        </label>
-                                    </div>
-                                </div>
+                                @using (@Html.BeginForm("UpdateCompanyInfo", "Home", FormMethod.Post, new { @class = "form-horizontal form-edit-com", @enctype = "multipart/form-data" }))
+                                {
+                                    @Html.Partial("_CompanyInfo", Model)
+                                }
+                            </fieldset>
 
                             </fieldset>
                         </div>
@@ -118,21 +62,15 @@
         </div>
     </div>
 </div>
+
+
 <script type="text/javascript">
     function preview_image(that, _attr) {
         var _Files = document.getElementById(_attr).files[0];
         var _FileName = _Files.name;
         $("." + _attr + "").val(_FileName);
     }
-
-    function showPictureUpload(that) {
-        $(that).click();
-    }
-
-    //function SubmitFormSilder(form) {
-    //    $(form).submit();
-    //}
-
+    
     $(".form-edit-silder").submit(function (e) {
         $('.se-pre-con').show();
         $.ajax({
@@ -151,7 +89,26 @@
         e.preventDefault();
     });
 
-    function showPictureUpload() {
-        $('[id=urlImage]').click();
+    $(".form-edit-com").submit(function (e) {
+        $('.se-pre-con').show();
+        $.ajax({
+            url: $(this).attr('action'),
+            type: "POST",
+            data: new FormData(this),
+            processData: false,
+            contentType: false,
+            success: function (content) {
+                $('.se-pre-con').hide();
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                $('.se-pre-con').hide();
+            }
+        });
+        e.preventDefault();
+    });
+    
+    function showPictureUpload(that) {
+        $(that).click();
     }
+    
 </script>

@@ -1,4 +1,4 @@
-﻿using CMS_DTO.CMSCustomer;
+﻿using CMS_DTO.CMSCompany;
 using CMS_Entity;
 using CMS_Entity.Entity;
 using System;
@@ -11,7 +11,7 @@ namespace CMS_Shared.CMSCompanies
 {
     public class CMSCompaniesFactory
     {
-        public bool InsertOrUpdate(CompanyModels model, ref string msg)
+        public bool CreateOrUpdate(CompanyModels model, ref string msg)
         {
             var result = true;
             using (var cxt = new CMS_Context())
@@ -20,7 +20,7 @@ namespace CMS_Shared.CMSCompanies
                 {
                     try
                     {
-                        if(string.IsNullOrEmpty(model.ID))
+                        if (string.IsNullOrEmpty(model.ID))
                         {
                             var e = new CMS_Companies
                             {
@@ -46,7 +46,7 @@ namespace CMS_Shared.CMSCompanies
                         else
                         {
                             var e = cxt.CMS_Companies.Find(model.ID);
-                            if(e != null)
+                            if (e != null)
                             {
                                 e.Name = model.Name;
                                 e.Description = model.Description;
@@ -66,7 +66,8 @@ namespace CMS_Shared.CMSCompanies
                         cxt.SaveChanges();
                         trans.Commit();
                     }
-                    catch(Exception ex) {
+                    catch (Exception ex)
+                    {
                         result = false;
                         trans.Rollback();
                         msg = "Lỗi đường truyền mạng";
@@ -93,7 +94,8 @@ namespace CMS_Shared.CMSCompanies
                         cxt.SaveChanges();
                         trans.Commit();
                     }
-                    catch (Exception ex) {
+                    catch (Exception ex)
+                    {
                         result = false;
                         msg = "Không thể xóa thể loại này";
                         trans.Rollback();
@@ -127,7 +129,7 @@ namespace CMS_Shared.CMSCompanies
                                                     LinkTwiter = x.LinkTwiter,
                                                     LinkInstagram = x.LinkInstagram,
                                                     LinkFB = x.LinkFB,
-                                                    ImageURL = x.ImageURL,
+                                                    ImageURL = string.IsNullOrEmpty(x.ImageURL) ? "" : Commons.HostImage + x.ImageURL,
                                                     IsActive = true,
                                                     CreatedBy = x.CreatedBy,
                                                     CreatedDate = DateTime.Now,
@@ -137,7 +139,7 @@ namespace CMS_Shared.CMSCompanies
                     return data;
                 }
             }
-            catch(Exception ex) { }
+            catch (Exception ex) { }
             return null;
         }
 
@@ -159,7 +161,7 @@ namespace CMS_Shared.CMSCompanies
                         LinkTwiter = x.LinkTwiter,
                         LinkInstagram = x.LinkInstagram,
                         LinkFB = x.LinkFB,
-                        ImageURL = x.ImageURL,
+                        ImageURL = string.IsNullOrEmpty(x.ImageURL) ? "" : Commons.HostImage + x.ImageURL,
                         IsActive = true,
                         CreatedBy = x.CreatedBy,
                         CreatedDate = DateTime.Now,
@@ -169,7 +171,7 @@ namespace CMS_Shared.CMSCompanies
                     return data;
                 }
             }
-            catch(Exception ex) { }
+            catch (Exception ex) { }
             return null;
         }
     }
