@@ -520,19 +520,23 @@ textarea {
 	background-size: cover; 
 	position: relative; 
 }
-.bg-1 { background-image: url(../../img/bg/1.jpg);}
-.bg-2 { background-image: url("../../img/bg/2.jpg");}
-.bg-3 { 
-    background-image: url("../../img/bg/3.jpg");
-    background-position: 55% bottom; 
+.bg-1 {
+    background-image: url(../Images/bg/1.jpg);
 }
-.bg-4 { 
-    background-image: url("../../img/bg/4.jpg");
-    background-position: 51% bottom; 
+.bg-2 {
+    background-image: url("../Images/bg/2.jpg");
 }
-.bg-5 { 
-    background-image: url("../../img/bg/5.jpg");
-    background-position: right top; 
+.bg-3 {
+    background-image: url("../Images/bg/3.jpg");
+    background-position: 55% bottom;
+}
+.bg-4 {
+    background-image: url("../Images/bg/4.jpg");
+    background-position: 51% bottom;
+}
+.bg-5 {
+    background-image: url("../Images/bg/5.jpg");
+    background-position: right top;
 }
 .overlay-1, .overlay-2{ position: relative}
 .overlay-1:before, .overlay-2:before{
