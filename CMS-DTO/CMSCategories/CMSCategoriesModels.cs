@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CMS_DTO.CMSBase;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Web.Mvc;
 
 namespace CMS_DTO.CMSCategories
 {
-    public class CMSCategoriesModels
+    public class CMSCategoriesModels : CMS_BaseModel
     {
         public string Id { get; set; }
         [Required(ErrorMessage="Vui lòng nhập tên thể loại")]
@@ -28,6 +29,7 @@ namespace CMS_DTO.CMSCategories
         public string sStatus { get; set; }
         public int NumberOfProduct { get; set; }
         public string ParentId { get; set; }
+        
         public CMSCategoriesModels()
         {
             IsActive = true;

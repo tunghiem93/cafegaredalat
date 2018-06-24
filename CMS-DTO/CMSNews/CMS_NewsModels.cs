@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CMS_DTO.CMSBase;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -9,7 +10,7 @@ using System.Web.Mvc;
 
 namespace CMS_DTO.CMSNews
 {
-    public class CMS_NewsModels
+    public class CMS_NewsModels : CMS_BaseModel
     {
         public string Id { get; set; }
         [Required(ErrorMessage = "Vui lòng nhập tiêu đề bài viết")]
@@ -26,11 +27,6 @@ namespace CMS_DTO.CMSNews
         public string UpdatedBy { get; set; }
         public DateTime CreatedDate { get; set; }
         public string sStatus { get; set; }
-        [DataType(DataType.Upload)]
-        public HttpPostedFileBase PictureUpload { get; set; }
-
-        public byte[] PictureByte { get; set; }
-        public string ImageURL { get; set; }
 
         public CMS_NewsModels()
         {

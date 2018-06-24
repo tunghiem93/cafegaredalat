@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CMS_DTO.CMSBase;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 namespace CMS_DTO.CMSEmployee
 {
-    public class CMS_EmployeeModels
+    public class CMS_EmployeeModels : CMS_BaseModel
     {
         public string Id { get; set; }
         [Required(ErrorMessage ="Vui lòng nhập họ tên")]
@@ -35,12 +36,7 @@ namespace CMS_DTO.CMSEmployee
         public DateTime CreatedDate { get; set; }
         public string sStatus { get; set; }
         public string FullName { get { return this.FirstName + this.LastName; } }
-
-        [DataType(DataType.Upload)]
-        public HttpPostedFileBase PictureUpload { get; set; }
-
-        public byte[] PictureByte { get; set; }
-        public string ImageURL { get; set; }
+        
         public CMS_EmployeeModels()
         {
             IsActive = true;
