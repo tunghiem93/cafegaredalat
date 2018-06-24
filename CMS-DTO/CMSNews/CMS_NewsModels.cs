@@ -12,11 +12,11 @@ namespace CMS_DTO.CMSNews
     public class CMS_NewsModels
     {
         public string Id { get; set; }
-        [Required(ErrorMessage ="Vui lòng nhập tiêu đề bài viết")]
-        [MaxLength(150,ErrorMessage ="Tiêu đề bài viết tối đa 150 kí tự")]
+        [Required(ErrorMessage = "Vui lòng nhập tiêu đề bài viết")]
+        [MaxLength(150, ErrorMessage = "Tiêu đề bài viết tối đa 150 kí tự")]
         public string Title { get; set; }
-        [Required(ErrorMessage ="Vui lòng nhập mô tả bài viết")]
-        [MaxLength(500,ErrorMessage ="Mô tả bài viết tối đa 500 kí tự")]
+        [Required(ErrorMessage = "Vui lòng nhập mô tả bài viết")]
+        [MaxLength(500, ErrorMessage = "Mô tả bài viết tối đa 500 kí tự")]
         public string Short_Description { get; set; }
         [AllowHtml]
         public string Description { get; set; }
@@ -32,7 +32,10 @@ namespace CMS_DTO.CMSNews
         public byte[] PictureByte { get; set; }
         public string ImageURL { get; set; }
 
-        
+        public CMS_NewsModels()
+        {
+            IsActive = true;
+        }
     }
 
     public class CMS_NewsViewModel

@@ -43,6 +43,7 @@ namespace CMS_DTO.CMSEmployee
         public string ImageURL { get; set; }
         public CMS_EmployeeModels()
         {
+            IsActive = true;
             BirthDate = new DateTime(1990, 01, 01);
         }
     }

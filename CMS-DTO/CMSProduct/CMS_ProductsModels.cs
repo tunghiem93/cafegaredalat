@@ -43,6 +43,7 @@ namespace CMS_DTO.CMSProduct
 
         public CMS_ProductsModels()
         {
+            IsActive = true;
             ListImages = new List<CMS_ImagesModels>();
         }
     }

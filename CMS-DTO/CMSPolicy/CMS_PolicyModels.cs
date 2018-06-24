@@ -18,5 +18,10 @@ namespace CMS_DTO.CMSPolicy
         public string UpdatedBy { get; set; }
         public DateTime CreatedDate { get; set; }
         public string sStatus { get; set; }
+
+        public CMS_PolicyModels()
+        {
+            IsActive = true;
+        }
     }
 }
