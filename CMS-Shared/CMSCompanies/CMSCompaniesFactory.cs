@@ -11,7 +11,7 @@ namespace CMS_Shared.CMSCompanies
 {
     public class CMSCompaniesFactory
     {
-        public bool CreateOrUpdate(CompanyModels model, ref string msg)
+        public bool CreateOrUpdate(CMS_CompanyModels model, ref string msg)
         {
             var result = true;
             using (var cxt = new CMS_Context())
@@ -110,14 +110,14 @@ namespace CMS_Shared.CMSCompanies
             return result;
         }
 
-        public CompanyModels GetDetail(string Id)
+        public CMS_CompanyModels GetDetail(string Id)
         {
             try
             {
                 using (var cxt = new CMS_Context())
                 {
                     var data = cxt.CMS_Companies.Where(x => x.Id.Equals(Id))
-                                                .Select(x => new CompanyModels
+                                                .Select(x => new CMS_CompanyModels
                                                 {
                                                     ID = x.Id,
                                                     Name = x.Name,
@@ -143,13 +143,13 @@ namespace CMS_Shared.CMSCompanies
             return null;
         }
 
-        public List<CompanyModels> GetList()
+        public List<CMS_CompanyModels> GetList()
         {
             try
             {
                 using (var cxt = new CMS_Context())
                 {
-                    var data = cxt.CMS_Companies.Select(x => new CompanyModels
+                    var data = cxt.CMS_Companies.Select(x => new CMS_CompanyModels
                     {
                         ID = x.Id,
                         Name = x.Name,

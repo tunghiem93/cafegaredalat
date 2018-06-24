@@ -1,4 +1,4 @@
-﻿using CMS_DTO.CMSCustomer;
+﻿using CMS_DTO.CMSCompany;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -12,11 +12,12 @@ namespace CMS_DTO.CMSHome
     public class CMSHomeModels
     {
         public SilderModels Silder { get; set; }
-        public CompanyModels ComInfo { get; set; }
+        public CMS_CompanyModels ComInfo { get; set; }
 
         public CMSHomeModels()
         {
             Silder = new SilderModels();
+            ComInfo = new CMS_CompanyModels();
         }
     }
 

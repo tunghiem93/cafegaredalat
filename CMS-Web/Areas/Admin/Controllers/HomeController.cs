@@ -64,7 +64,7 @@ namespace CMS_Web.Areas.Admin.Controllers
                 if (listCom != null && listCom.Count > 0)
                     model.ComInfo = listCom.FirstOrDefault();
                 else
-                    model.ComInfo = new CompanyModels();
+                    model.ComInfo = new CMS_CompanyModels();
             }
             catch (Exception ex) { }
             return View(model);
@@ -101,15 +101,16 @@ namespace CMS_Web.Areas.Admin.Controllers
                     System.Drawing.Image imageTmp = System.Drawing.Image.FromStream(ms, true);
                     photoByte = null;
                     ImageHelper.Me.SaveCroppedImage(imageTmp, path, model.Silder.ImageURL1, ref photoByte, 400, Commons.WidthImageSilder, Commons.HeightImageSilder);
+                    model.Silder.ImageURL1 = string.Empty;
                 }
             }
 
             if (model.Silder.PictureUpload2 != null && model.Silder.PictureUpload2.ContentLength > 0)
             {
                 //Delete image 
-                if (System.IO.File.Exists(Server.MapPath(model.Silder.ImageURL2)))
+                if (System.IO.File.Exists(Server.MapPath("~/Uploads/Silder/" + model.Silder.ImageURL2)))
                 {
-                    ImageHelper.Me.TryDeleteImageUpdated(Server.MapPath(model.Silder.ImageURL2));
+                    ImageHelper.Me.TryDeleteImageUpdated(Server.MapPath("~/Uploads/Silder/" + model.Silder.ImageURL2));
                 }
 
                 Byte[] imgByte = new Byte[model.Silder.PictureUpload2.ContentLength];
@@ -126,15 +127,16 @@ namespace CMS_Web.Areas.Admin.Controllers
                     System.Drawing.Image imageTmp = System.Drawing.Image.FromStream(ms, true);
                     photoByte = null;
                     ImageHelper.Me.SaveCroppedImage(imageTmp, path, model.Silder.ImageURL2, ref photoByte);
+                    model.Silder.ImageURL2 = string.Empty;
                 }
             }
 
             if (model.Silder.PictureUpload3 != null && model.Silder.PictureUpload3.ContentLength > 0)
             {
                 //Delete image 
-                if (System.IO.File.Exists(Server.MapPath(model.Silder.ImageURL3)))
+                if (System.IO.File.Exists(Server.MapPath("~/Uploads/Silder/" + model.Silder.ImageURL3)))
                 {
-                    ImageHelper.Me.TryDeleteImageUpdated(Server.MapPath(model.Silder.ImageURL3));
+                    ImageHelper.Me.TryDeleteImageUpdated(Server.MapPath("~/Uploads/Silder/"+model.Silder.ImageURL3));
                 }
 
                 Byte[] imgByte = new Byte[model.Silder.PictureUpload3.ContentLength];
@@ -151,15 +153,16 @@ namespace CMS_Web.Areas.Admin.Controllers
                     System.Drawing.Image imageTmp = System.Drawing.Image.FromStream(ms, true);
                     photoByte = null;
                     ImageHelper.Me.SaveCroppedImage(imageTmp, path, model.Silder.ImageURL3, ref photoByte);
+                    model.Silder.ImageURL3 = string.Empty;
                 }
             }
 
             if (model.Silder.PictureUpload4 != null && model.Silder.PictureUpload4.ContentLength > 0)
             {
                 //Delete image 
-                if (System.IO.File.Exists(Server.MapPath(model.Silder.ImageURL4)))
+                if (System.IO.File.Exists(Server.MapPath("~/Uploads/Silder/" + model.Silder.ImageURL4)))
                 {
-                    ImageHelper.Me.TryDeleteImageUpdated(Server.MapPath(model.Silder.ImageURL4));
+                    ImageHelper.Me.TryDeleteImageUpdated(Server.MapPath("~/Uploads/Silder/" + model.Silder.ImageURL4));
                 }
 
                 Byte[] imgByte = new Byte[model.Silder.PictureUpload4.ContentLength];
@@ -176,15 +179,16 @@ namespace CMS_Web.Areas.Admin.Controllers
                     System.Drawing.Image imageTmp = System.Drawing.Image.FromStream(ms, true);
                     photoByte = null;
                     ImageHelper.Me.SaveCroppedImage(imageTmp, path, model.Silder.ImageURL4, ref photoByte);
+                    model.Silder.ImageURL4 = string.Empty;
                 }
             }
 
             if (model.Silder.PictureUpload5 != null && model.Silder.PictureUpload5.ContentLength > 0)
             {
                 //Delete image 
-                if (System.IO.File.Exists(Server.MapPath(model.Silder.ImageURL5)))
+                if (System.IO.File.Exists(Server.MapPath("~/Uploads/Silder/"+model.Silder.ImageURL5)))
                 {
-                    ImageHelper.Me.TryDeleteImageUpdated(Server.MapPath(model.Silder.ImageURL5));
+                    ImageHelper.Me.TryDeleteImageUpdated(Server.MapPath("~/Uploads/Silder/" + model.Silder.ImageURL5));
                 }
 
                 Byte[] imgByte = new Byte[model.Silder.PictureUpload5.ContentLength];
@@ -201,15 +205,16 @@ namespace CMS_Web.Areas.Admin.Controllers
                     System.Drawing.Image imageTmp = System.Drawing.Image.FromStream(ms, true);
                     photoByte = null;
                     ImageHelper.Me.SaveCroppedImage(imageTmp, path, model.Silder.ImageURL5, ref photoByte);
+                    model.Silder.ImageURL5 = string.Empty;
                 }
             }
 
             if (model.Silder.PictureUpload6 != null && model.Silder.PictureUpload6.ContentLength > 0)
             {
                 //Delete image 
-                if (System.IO.File.Exists(Server.MapPath(model.Silder.ImageURL6)))
+                if (System.IO.File.Exists(Server.MapPath("~/Uploads/Silder/"+model.Silder.ImageURL6)))
                 {
-                    ImageHelper.Me.TryDeleteImageUpdated(Server.MapPath(model.Silder.ImageURL6));
+                    ImageHelper.Me.TryDeleteImageUpdated(Server.MapPath("~/Uploads/Silder/"+model.Silder.ImageURL6));
                 }
 
                 Byte[] imgByte = new Byte[model.Silder.PictureUpload6.ContentLength];
@@ -226,6 +231,40 @@ namespace CMS_Web.Areas.Admin.Controllers
                     System.Drawing.Image imageTmp = System.Drawing.Image.FromStream(ms, true);
                     photoByte = null;
                     ImageHelper.Me.SaveCroppedImage(imageTmp, path, model.Silder.ImageURL6, ref photoByte);
+                    model.Silder.ImageURL6 = string.Empty;
+                }
+            }
+
+            //reload partial view silder
+            var _Path = HostingEnvironment.MapPath("~/Uploads/Silder/");
+            var list = Directory.GetFiles(_Path).Select(x => Path.GetFileName(x)).ToList();
+
+            if (list != null && list.Count > 0)
+            {
+                // var index = 1;
+                for (var i = 0; i < list.Count; i++)
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            model.Silder.ImageURL1 = list[i];
+                            break;
+                        case 1:
+                            model.Silder.ImageURL2 = list[i];
+                            break;
+                        case 2:
+                            model.Silder.ImageURL3 = list[i];
+                            break;
+                        case 3:
+                            model.Silder.ImageURL4 = list[i];
+                            break;
+                        case 4:
+                            model.Silder.ImageURL5 = list[i];
+                            break;
+                        case 5:
+                            model.Silder.ImageURL6 = list[i];
+                            break;
+                    }
                 }
             }
 
@@ -265,6 +304,13 @@ namespace CMS_Web.Areas.Admin.Controllers
 
                     ImageHelper.Me.SaveCroppedImage(imageTmp, path, model.ComInfo.ImageURL, ref photoByte);
                 }
+
+                /* get com info */
+                var listCom = _factory.GetList();
+                if (listCom != null && listCom.Count > 0)
+                    model.ComInfo = listCom.FirstOrDefault();
+                else
+                    model.ComInfo = new CMS_CompanyModels();
             }
             else
             {

@@ -1,15 +1,14 @@
 ﻿
 @model CMS_DTO.CMSHome.CMSHomeModels
 @using CMS_Shared
-
-
 <div class="">    
     <div class="form-group">
         <div class="col-md-6" style="margin-bottom:10px">
             <div class="input-group">
                 @Html.TextBoxFor(model => model.Silder.PictureUpload1, new { @type = "file", @onchange = "preview_image(this,\"upload-preview-1\")", @accept = "*.jpg", @class = "hidden", @id = "upload-preview-1" })
-                @Html.HiddenFor(model => model.Silder.ImageURL1)
-                <input type="text" class="form-control upload-preview-1" placeholder="Chọn hình..." value="@Model.Silder.ImageURL1">
+                <input type="hidden" value="@Model.Silder.ImageURL1" name="Silder.ImageURL1" />
+                @*@Html.HiddenFor(model => model.Silder.ImageURL1)*@
+                <input type="text" class="form-control upload-preview-1" placeholder="Chọn hình..." autocomplete="off" value="@Model.Silder.ImageURL1">
                 <span class="input-group-addon btn green" onclick="showPictureUpload('#upload-preview-1');">
                     <i class="fa fa-cloud-upload"></i>
                 </span>
@@ -19,8 +18,10 @@
         <div class="col-md-6" style="margin-bottom:10px">
             <div class="input-group">
                 @Html.TextBoxFor(model => model.Silder.PictureUpload2, new { @type = "file", @onchange = "preview_image(this,\"upload-preview-2\")", @accept = "*.jpg", @class = "hidden", @id = "upload-preview-2" })
-                @Html.HiddenFor(model => model.Silder.ImageURL2)
-                <input type="text" class="form-control upload-preview-2" placeholder="Chọn hình..." value="@Model.Silder.ImageURL2">
+                @*@Html.HiddenFor(model => model.Silder.ImageURL2)*@
+                @*@Html.TextBoxFor(model => model.Silder.ImageURL2, new { @class= "form-control upload-preview-2",@placeholder="Chọn hình...",@autocomplete="off" })*@
+                <input type="hidden" value="@Model.Silder.ImageURL2" name="Silder.ImageURL2" />
+                <input type="text" class="form-control upload-preview-2" autocomplete="off" placeholder="Chọn hình..." value="@Model.Silder.ImageURL2">
                 <span class="input-group-addon btn green" onclick="showPictureUpload('#upload-preview-2');">
                     <i class="fa fa-cloud-upload"></i>
                 </span>
@@ -32,8 +33,9 @@
         <div class="col-md-6" style="margin-bottom:10px">
             <div class="input-group">
                 @Html.TextBoxFor(model => model.Silder.PictureUpload3, new { @type = "file", @onchange = "preview_image(this,\"upload-preview-3\")", @accept = "*.jpg", @class = "hidden", @id = "upload-preview-3" })
-                @Html.HiddenFor(model => model.Silder.ImageURL3)
-                <input type="text" class="form-control upload-preview-3" placeholder="Chọn hình..." value="@Model.Silder.ImageURL3">
+                @*@Html.HiddenFor(model => model.Silder.ImageURL3)*@
+                <input type="hidden" value="@Model.Silder.ImageURL3" name="Silder.ImageURL3" />
+                <input type="text" class="form-control upload-preview-3" autocomplete="off" placeholder="Chọn hình..." value="@Model.Silder.ImageURL3">
                 <span class="input-group-addon btn green" onclick="showPictureUpload('#upload-preview-3');">
                     <i class="fa fa-cloud-upload"></i>
                 </span>
@@ -43,8 +45,9 @@
         <div class="col-md-6" style="margin-bottom:10px">
             <div class="input-group">
                 @Html.TextBoxFor(model => model.Silder.PictureUpload4, new { @type = "file", @onchange = "preview_image(this,\"upload-preview-4\")", @accept = "*.jpg", @class = "hidden", @id = "upload-preview-4" })
-                @Html.HiddenFor(model => model.Silder.ImageURL4)
-                <input type="text" class="form-control upload-preview-4" placeholder="Chọn hình..." value="@Model.Silder.ImageURL4">
+                @*@Html.HiddenFor(model => model.Silder.ImageURL4)*@
+                <input type="hidden" value="@Model.Silder.ImageURL4" name="Silder.ImageURL4" />
+                <input type="text" class="form-control upload-preview-4" autocomplete="off" placeholder="Chọn hình..." value="@Model.Silder.ImageURL4">
                 <span class="input-group-addon btn green" onclick="showPictureUpload('#upload-preview-4');">
                     <i class="fa fa-cloud-upload"></i>
                 </span>
@@ -56,8 +59,9 @@
         <div class="col-md-6" style="margin-bottom:10px">
             <div class="input-group">
                 @Html.TextBoxFor(model => model.Silder.PictureUpload5, new { @type = "file", @onchange = "preview_image(this,\"upload-preview-5\")", @accept = "*.jpg", @class = "hidden", @id = "upload-preview-5" })
-                @Html.HiddenFor(model => model.Silder.ImageURL5)
-                <input type="text" class="form-control upload-preview-5" placeholder="Chọn hình..." value="@Model.Silder.ImageURL5">
+                @*@Html.HiddenFor(model => model.Silder.ImageURL5)*@
+                <input type="hidden" value="@Model.Silder.ImageURL5" name="Silder.ImageURL5" />
+                <input type="text" class="form-control upload-preview-5" autocomplete="off" placeholder="Chọn hình..." value="@Model.Silder.ImageURL5">
                 <span class="input-group-addon btn green" onclick="showPictureUpload('#upload-preview-5');">
                     <i class="fa fa-cloud-upload"></i>
                 </span>
@@ -67,8 +71,9 @@
         <div class="col-md-6" style="margin-bottom:10px">
             <div class="input-group">
                 @Html.TextBoxFor(model => model.Silder.PictureUpload6, new { @type = "file", @onchange = "preview_image(this,\"upload-preview-6\")", @accept = "*.jpg", @class = "hidden", @id = "upload-preview-6" })
-                @Html.HiddenFor(model => model.Silder.ImageURL6)
-                <input type="text" class="form-control upload-preview-6" placeholder="Chọn hình..." value="@Model.Silder.ImageURL6">
+                @*@Html.HiddenFor(model => model.Silder.ImageURL6)*@
+                <input type="hidden" value="@Model.Silder.ImageURL6" name="Silder.ImageURL6" />
+                <input type="text" class="form-control upload-preview-6" autocomplete="off" placeholder="Chọn hình..." value="@Model.Silder.ImageURL6">
                 <span class="input-group-addon btn green" onclick="showPictureUpload('#upload-preview-6');">
                     <i class="fa fa-cloud-upload"></i>
                 </span>
