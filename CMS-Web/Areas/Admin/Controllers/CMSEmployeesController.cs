@@ -34,7 +34,7 @@ namespace CMS_Web.Areas.Admin.Controllers
             {
                 x.sStatus = x.IsActive ? "Kích hoạt" : "Chưa kích hoạt";
                 if (!string.IsNullOrEmpty(x.ImageURL))
-                    x.ImageURL = Commons.HostImage + x.ImageURL;
+                    x.ImageURL = Commons.HostImage + "Employees/" + x.ImageURL;
             });
             return PartialView("_ListData", model);
         }
@@ -81,7 +81,7 @@ namespace CMS_Web.Areas.Admin.Controllers
                 {
                     if (!string.IsNullOrEmpty(model.ImageURL) && model.PictureByte != null)
                     {
-                        var path = Server.MapPath("~/Uploads/" + model.ImageURL);
+                        var path = Server.MapPath("~/Uploads/Employees/" + model.ImageURL);
                         MemoryStream ms = new MemoryStream(photoByte, 0, photoByte.Length);
                         ms.Write(photoByte, 0, photoByte.Length);
                         System.Drawing.Image imageTmp = System.Drawing.Image.FromStream(ms, true);
@@ -107,7 +107,7 @@ namespace CMS_Web.Areas.Admin.Controllers
         {
             var model = GetDetail(Id);
             if (!string.IsNullOrEmpty(model.ImageURL))
-                model.ImageURL = Commons.HostImage + model.ImageURL;
+                model.ImageURL = Commons.HostImage + "Employees/" + model.ImageURL;
             return PartialView("_Edit", model);
         }
 
@@ -125,7 +125,8 @@ namespace CMS_Web.Areas.Admin.Controllers
                 }
                 if (!string.IsNullOrEmpty(model.ImageURL))
                 {
-                    model.ImageURL = model.ImageURL.Replace(Commons._PublicImages, "").Replace(Commons.Image200_100, "");
+                    model.ImageURL = model.ImageURL.Replace(Commons._PublicImages, "").Replace("Employees/", "").Replace(Commons.Image200_100, "");
+                    temp = model.ImageURL;
                 }
 
                 if (model.PictureUpload != null && model.PictureUpload.ContentLength > 0)
@@ -144,17 +145,13 @@ namespace CMS_Web.Areas.Admin.Controllers
                 if (result)
                 {
                     if (!string.IsNullOrEmpty(model.ImageURL) && model.PictureByte != null)
-                    {
-                        if (!string.IsNullOrEmpty(temp))
+                    {                        
+                        if (System.IO.File.Exists(Server.MapPath("~/Uploads/Employees/" + temp)))
                         {
-                            temp = temp.Replace(Commons._PublicImages, "").Replace(Commons.Image200_100, "");
-                        }
-                        if (System.IO.File.Exists(Server.MapPath(temp)))
-                        {
-                            ImageHelper.Me.TryDeleteImageUpdated(Server.MapPath(temp));
+                            ImageHelper.Me.TryDeleteImageUpdated(Server.MapPath("~/Uploads/Employees/" + temp));
                         }
 
-                        var path = Server.MapPath("~/Uploads/" + model.ImageURL);
+                        var path = Server.MapPath("~/Uploads/Employees/" + model.ImageURL);
                         MemoryStream ms = new MemoryStream(photoByte, 0, photoByte.Length);
                         ms.Write(photoByte, 0, photoByte.Length);
                         System.Drawing.Image imageTmp = System.Drawing.Image.FromStream(ms, true);
@@ -180,7 +177,7 @@ namespace CMS_Web.Areas.Admin.Controllers
         {
             var model = GetDetail(Id);
             if (!string.IsNullOrEmpty(model.ImageURL))
-                model.ImageURL = Commons.HostImage + model.ImageURL;
+                model.ImageURL = Commons.HostImage + "Employees/" + model.ImageURL;
             return PartialView("_View", model);
         }
 

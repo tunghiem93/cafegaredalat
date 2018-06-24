@@ -42,6 +42,7 @@ namespace CMS_Shared.CMSCategories
                                     UpdatedBy = model.UpdatedBy,
                                     UpdatedDate = DateTime.Now,
                                     ParentId = model.ParentId,
+                                    ImageURL = model.ImageURL,
                                     Id = _Id
                                 };
                                 Id = _Id;
@@ -59,6 +60,7 @@ namespace CMS_Shared.CMSCategories
                                     e.UpdatedBy = model.UpdatedBy;
                                     e.UpdatedDate = DateTime.Now;
                                     e.ParentId = model.ParentId;
+                                    e.ImageURL = model.ImageURL;
                                 }
                             }
                             cxt.SaveChanges();
@@ -112,7 +114,8 @@ namespace CMS_Shared.CMSCategories
                         IsActive = x.IsActive,
                         UpdatedBy = x.UpdatedBy,
                         UpdatedDate = x.UpdatedDate,
-                        ParentId = x.ParentId
+                        ParentId = x.ParentId,
+                        ImageURL = x.ImageURL
                     }).Where(x=>x.Id.Equals(Id)).FirstOrDefault();
                     return data;
                 }
@@ -138,7 +141,8 @@ namespace CMS_Shared.CMSCategories
                         IsActive = x.IsActive,
                         UpdatedBy = x.UpdatedBy,
                         UpdatedDate = x.UpdatedDate,
-                        ParentId = x.ParentId
+                        ParentId = x.ParentId,
+                        ImageURL = x.ImageURL
                     }).ToList();
                     return data;
                 }

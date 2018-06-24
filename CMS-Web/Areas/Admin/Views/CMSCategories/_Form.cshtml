@@ -8,6 +8,26 @@
 @Html.HiddenFor(model =>model.Id)
 <div class="row form-horizontal form-label-left" style="margin-bottom:15px;">
     <div class="form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12 lineHeight fontLighter">Hình ảnh</label>
+        <div class="col-md-2 col-sm-2 col-xs-12">
+            @if (!string.IsNullOrEmpty(Model.ImageURL))
+            {
+                <img id="upload-preview" src="@Model.ImageURL" height="100" width="100" class="" style="border-radius:100% !important" />
+            }
+            else
+            {
+                <img id="upload-preview" class="" src="@Commons.Image200_100" height="100" width="100" style="border-radius:100% !important" />
+            }
+        </div>
+        <div class="col-md-1 col-sm-3 col-xs-12" style="line-height:55px;">
+            <div class="upload-btn-wrapper" style="cursor:pointer;">
+                <button class="btn btn-default" type="button" onclick="showPictureUpload();" style="margin-top:-6%;margin-left:50px">Chọn hình</button>
+                @Html.TextBoxFor(model => model.PictureUpload, new { @type = "file", @onchange = "PreviewImage(this,\"upload-preview\")", @accept = "*.jpg", @class = "hidden", @id = "urlImage" })
+            </div>
+            @Html.ValidationMessageFor(model => model.PictureUpload, null, new { @class = "label label-danger" })
+        </div>
+    </div>
+    <div class="form-group">
         <label class="control-label col-md-2 col-sm-2 col-xs-12 fontLighter">Mã thể loại</label>
         <div class="col-md-6 col-sm-6 col-xs-12">
             @Html.TextBoxFor(model => model.CategoryCode, new { @class = "form-control", @placeholder = "Mã thể loại", @autocomplete = "off" })
@@ -24,19 +44,19 @@
     </div>
 
     @*<div class="form-group">
-        <label class="control-label col-md-2 col-sm-2 col-xs-12 lineHeight fontLighter">Thể loại cha</label>
-        <div class="col-md-6 col-sm-6 col-xs-12">
-            @Html.DropDownListFor(model => model.ParentId,
-            new SelectList(ViewBag.Category, "Value", "Text", Model.ParentId),
-            new
-            {
-                @class = "form-control select2_multiple",
-                @id = "CategoryDdl",
-                @style = "width:100%;"
-            })
-            @Html.ValidationMessageFor(model => model.ParentId, null, new { @class = "label label-danger" })
-        </div>
-    </div>*@
+            <label class="control-label col-md-2 col-sm-2 col-xs-12 lineHeight fontLighter">Thể loại cha</label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                @Html.DropDownListFor(model => model.ParentId,
+                new SelectList(ViewBag.Category, "Value", "Text", Model.ParentId),
+                new
+                {
+                    @class = "form-control select2_multiple",
+                    @id = "CategoryDdl",
+                    @style = "width:100%;"
+                })
+                @Html.ValidationMessageFor(model => model.ParentId, null, new { @class = "label label-danger" })
+            </div>
+        </div>*@
 
     <div class="form-group">
         <label class="control-label col-md-2 col-sm-2 col-xs-12 fontLighter">Trạng thái</label>
@@ -62,4 +82,7 @@
             //allowClear: true
         });
     })
+    function showPictureUpload() {
+        $('[id=urlImage]').click();
+    }
 </script>
