@@ -66,7 +66,7 @@
                                 <div class="recent-text">
                                     <h5><a href="blog.html">@string.Format("{0}", (item.Title.Length > 25) ? (item.Title.Substring(0, 25) + "...") : item.Title)</a></h5>
                                     <div class="recent-info">
-                                        <a href="#">@Html.Raw(item.CreatedBy)</a>
+                                        <a href="#">@string.Format("{0}", (item.CreatedBy.Length > 25) ? (item.CreatedBy.Substring(0, 25) + "...") : item.CreatedBy)</a>
                                         <a href="#"><i class="zmdi zmdi-comments"></i>1</a>
                                     </div>
                                 </div>

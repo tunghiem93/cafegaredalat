@@ -15,7 +15,7 @@ using System.Web.Mvc;
 namespace CMS_Web.Areas.Admin.Controllers
 {
     [NuAuth]
-    public class CMSNewsController : Controller
+    public class CMSNewsController : BaseController
     {
         private CMSNewsFactory _factory;
         public CMSNewsController()
@@ -73,16 +73,11 @@ namespace CMS_Web.Areas.Admin.Controllers
                     model.ImageURL = Guid.NewGuid() + Path.GetExtension(model.PictureUpload.FileName);
                     model.PictureUpload = null;
                     photoByte = imgByte;
-                }
-
-                if (HttpContext.Session != null && HttpContext.Session["User"] != null)
-                {
-                    var user = (UserSession)HttpContext.Session["User"];
-                    model.CreatedBy = user.UserName;
-                    model.UpdatedBy = user.UserName;
-                }
+                }                
 
                 var msg = "";
+                model.CreatedBy = CurrentUser.UserName;
+                model.UpdatedBy = CurrentUser.UserName;
                 var result = _factory.CreateOrUpdate(model, ref msg);
                 if (result)
                 {
@@ -143,16 +138,11 @@ namespace CMS_Web.Areas.Admin.Controllers
                     model.ImageURL = Guid.NewGuid() + Path.GetExtension(model.PictureUpload.FileName);
                     model.PictureUpload = null;
                     photoByte = imgByte;
-                }
-
-                if (HttpContext.Session != null && HttpContext.Session["User"] != null)
-                {
-                    var user = (UserSession)HttpContext.Session["User"];
-                    model.CreatedBy = user.UserName;
-                    model.UpdatedBy = user.UserName;
-                }
+                }                
 
                 var msg = "";
+                model.CreatedBy = CurrentUser.UserName;
+                model.UpdatedBy = CurrentUser.UserName;
                 var result = _factory.CreateOrUpdate(model, ref msg);
                 if (result)
                 {

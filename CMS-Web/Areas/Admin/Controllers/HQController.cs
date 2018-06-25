@@ -1,4 +1,5 @@
 ﻿using CMS_DTO.CMSBase;
+using CMS_DTO.CMSSession;
 using CMS_Shared.CMSCategories;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,17 @@ namespace CMS_Web.Areas.Admin.Controllers
 {
     public class HQController : Controller
     {
+        public UserSession CurrentUser
+        {
+            get
+            {
+                if (System.Web.HttpContext.Current.Session["User"] != null)
+                    return (UserSession)System.Web.HttpContext.Current.Session["User"];
+                else
+                    return new UserSession();
+            }
+        }
+
         public List<SelectListItem> GetListCategorySelectItem()
         {
             var _factory = new CMSCategoriesFactory();
