@@ -6,23 +6,11 @@
 <!doctype html>
 
 <div>
-    <section class="breadcrumb-area overlay-2 bg-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="breadcrumb-text">
-                        <h3>Blog Details</h3>
-                        <div class="breadcrumb-bar">
-                            <ul class="breadcrumb">
-                                <li><a href="index.html">Home</a></li>
-                                <li>Blog Details</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    
+    <!-- Breadcrumb Area Start-->
+    @Html.Partial("_breadcrumb", new Dictionary<string, string> { { "A", "Trang chủ" }, { "B", "Chi tiết" } })
+    <!-- Breadcrumb Area End -->
+
     <!-- Breadcrumb Area End -->
     <!-- Blog Deatils Area Start -->
     <section class="blog-details-area ptb-100 blog-section">

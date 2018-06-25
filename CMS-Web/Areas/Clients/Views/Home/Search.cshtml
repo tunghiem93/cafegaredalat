@@ -3,24 +3,11 @@
 @{
     Layout = "~/Areas/Clients/Views/Shared/_Layout.cshtml";
 }
-		<!-- Breadcrumb Area Start-->
-<section class="breadcrumb-area overlay-2 bg-4">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="breadcrumb-text">
-                    <h3>Our Menu</h3>
-                    <div class="breadcrumb-bar">
-                        <ul class="breadcrumb">
-                            <li><a href="@Url.Action("Index","Home")">Trang chủ</a></li>
-                            <li>Sản phẩm</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
+<!-- Breadcrumb Area Start-->
+@Html.Partial("_breadcrumb", new Dictionary<string, string> { { "A", "Trang chủ" }, { "B", "Sản phẩm" } })
+<!-- Breadcrumb Area End -->
+
 <!-- Breadcrumb Area End -->
 <!-- Menu Area Start -->
 <section class="menu-area ptb-100 menu-section">
@@ -28,9 +15,9 @@
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="section-title text-center">
-                    <h1>Our Menu</h1>
+                    <h1>Sản phẩm chúng tôi</h1>
                     <span><img src="@Url.Content("~/Images/banner/koffee.png")" alt=""></span>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since. </p>
+                    <p>Sản phẩm nguyên chất làm từ nguyên liệu được sản xuất trực tiếp tài thành phố Đà Lạt.</p>
                 </div>
             </div>
         </div>
@@ -66,7 +53,7 @@
 <!-- Menu Area End -->
 
 <script type="text/javascript">
-        $(document).ready(function () {
-            
-        })
+    $(document).ready(function () {
+
+    })
 </script>
