@@ -95,6 +95,15 @@ namespace CMS_Web.Areas.Clients.Controllers
                             x.ImageURL = "~/Uploads/Employees/" + x.ImageURL;
                         else
                             x.ImageURL = Commons.Image400_340;
+
+                        if (string.IsNullOrEmpty(x.LinkFB))
+                            x.LinkFB = "javascript:void(0)";
+                        if (string.IsNullOrEmpty(x.LinkInstagram))
+                            x.LinkInstagram = "javascript:void(0)";
+                        if (string.IsNullOrEmpty(x.LinkPinterest))
+                            x.LinkPinterest = "javascript:void(0)";
+                        if (string.IsNullOrEmpty(x.LinkTwiter))
+                            x.LinkTwiter = "javascript:void(0)";
                     });
                 }
                 return View(model);
