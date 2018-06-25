@@ -30,6 +30,7 @@ namespace CMS_Entity.Mapping
             this.Property(x => x.UpdatedBy).HasMaxLength(60).HasColumnType("varchar").IsOptional();
             this.Property(x => x.CreatedBy).HasMaxLength(60).HasColumnType("varchar").IsOptional();
             this.Property(x => x.Position).HasMaxLength(100).IsOptional().HasColumnType("nvarchar");
+            this.Property(x => x.Level).IsOptional();
         }
     }
 }
