@@ -57,11 +57,13 @@ namespace CMS_Shared.CMSCompanies
                                 e.LinkTwiter = model.LinkTwiter;
                                 e.LinkInstagram = model.LinkInstagram;
                                 e.LinkFB = model.LinkFB;
-                                e.ImageURL = model.ImageURL;
+                                //e.ImageURL = model.ImageURL;
                                 e.IsActive = true;
                                 e.UpdatedBy = model.UpdatedBy;
                                 e.UpdatedDate = DateTime.Now;
                             }
+                            if (!string.IsNullOrEmpty(model.ImageURL))
+                                e.ImageURL = model.ImageURL;
                         }
                         cxt.SaveChanges();
                         trans.Commit();
