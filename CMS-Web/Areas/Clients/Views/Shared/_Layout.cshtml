@@ -27,19 +27,17 @@
     <script src="@Url.Content("~/Scripts/modernizr-2.8.3.min.js")"></script>
 </head>
 <body>
-    <div class="">
-        <!-- Header Area Start -->
-        <div id="" class="fixed">
-            @Html.Partial("_header")
-        </div>
-        <!-- Header Area End -->
-        <div class="">
-            @RenderBody()
-        </div>
-        <!--Footer-->
-        <div class="footer-area">
-            @Html.Partial("_footer")
-        </div>
+    <!-- Header Area Start -->
+    <div id="" class="fixed">
+        @Html.Partial("_header")
+    </div>
+    <!-- Header Area End -->
+    <!--Content Area Start-->
+    @RenderBody()
+    <!--Content Area End-->
+    <!--Footer-->
+    <div class="footer-area">
+        @Html.Partial("_footer")
     </div>
     <a href="#" class="scroll_top" title="Scroll to Top" style="display: none;">Scroll</a>
 </body>
