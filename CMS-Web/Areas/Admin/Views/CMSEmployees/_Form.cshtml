@@ -52,6 +52,22 @@
         </div>
 
         <div class="form-group">
+            <label class="control-label col-md-2 col-sm-2 col-xs-12 lineHeight fontLighter">Level:</label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                @Html.TextBoxFor(model => model.Level, new { @class = "form-control", @placeholder = "0->10", @autocomplete = "off" })
+                @Html.ValidationMessageFor(model => model.Level, null, new { @class = "label label-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2 col-sm-2 col-xs-12 lineHeight fontLighter">Chức vụ:</label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                @Html.TextBoxFor(model => model.Position, new { @class = "form-control", @placeholder = "Chức vụ", @autocomplete = "off" })
+                @Html.ValidationMessageFor(model => model.Position, null, new { @class = "label label-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
             <label class="control-label col-md-2 col-sm-2 col-xs-12 lineHeight fontLighter">Email</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
                 @Html.TextBoxFor(model => model.Employee_Email, new { @class = "form-control", @placeholder = "Địa chỉ email", @autocomplete = "off" })

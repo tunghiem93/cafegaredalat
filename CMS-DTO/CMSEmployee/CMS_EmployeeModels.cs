@@ -37,6 +37,10 @@ namespace CMS_DTO.CMSEmployee
         public string sStatus { get; set; }
         public string FullName { get { return this.FirstName + " " + this.LastName; } }
         public bool IsSupperAdmin { get; set; }
+        public int Level { get; set; }
+
+        [MaxLength(100, ErrorMessage = "Tên tối đa 100 kí tự")]
+        public string Position { get; set; }
         public CMS_EmployeeModels()
         {
             IsActive = true;

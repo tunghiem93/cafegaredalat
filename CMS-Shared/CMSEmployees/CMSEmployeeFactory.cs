@@ -11,7 +11,7 @@ namespace CMS_Shared.CMSEmployees
 {
     public class CMSEmployeeFactory
     {
-        public bool CreateOrUpdate(CMS_EmployeeModels model , ref string msg)
+        public bool CreateOrUpdate(CMS_EmployeeModels model, ref string msg)
         {
             var result = true;
             using (var cxt = new CMS_Context())
@@ -20,7 +20,7 @@ namespace CMS_Shared.CMSEmployees
                 {
                     try
                     {
-                        if(string.IsNullOrEmpty(model.Id))
+                        if (string.IsNullOrEmpty(model.Id))
                         {
                             var _Id = Guid.NewGuid().ToString();
                             var e = new CMS_Employee
@@ -39,14 +39,16 @@ namespace CMS_Shared.CMSEmployees
                                 Password = model.Password,
                                 UpdatedBy = model.UpdatedBy,
                                 UpdatedDate = DateTime.Now,
-                                ImageURL = model.ImageURL
+                                ImageURL = model.ImageURL,
+                                Level = model.Level,
+                                Position = model.Position,
                             };
                             cxt.CMS_Employees.Add(e);
                         }
                         else
                         {
                             var e = cxt.CMS_Employees.Find(model.Id);
-                            if(e != null)
+                            if (e != null)
                             {
                                 e.BirthDate = model.BirthDate;
                                 e.UpdatedBy = model.UpdatedBy;
@@ -60,6 +62,8 @@ namespace CMS_Shared.CMSEmployees
                                 e.Password = model.Password;
                                 e.UpdatedDate = DateTime.Now;
                                 e.ImageURL = model.ImageURL;
+                                e.Position = model.Position;
+                                e.Level = model.Level;
                             }
                         }
                         cxt.SaveChanges();
@@ -125,6 +129,8 @@ namespace CMS_Shared.CMSEmployees
                                                     UpdatedDate = x.UpdatedDate,
                                                     ImageURL = x.ImageURL,
                                                     IsSupperAdmin = x.IsSupperAdmin,
+                                                    Level = x.Level ?? 0,
+                                                    Position = x.Position,
                                                 }).FirstOrDefault();
                     return data;
                 }
@@ -139,25 +145,28 @@ namespace CMS_Shared.CMSEmployees
             {
                 using (var cxt = new CMS_Context())
                 {
-                    var data = cxt.CMS_Employees.Select(x => new CMS_EmployeeModels
-                                                {
-                                                    Id = x.Id,
-                                                    BirthDate = x.BirthDate,
-                                                    CreatedBy = x.CreatedBy,
-                                                    CreatedDate = x.CreatedDate,
-                                                    Employee_Address = x.Employee_Address,
-                                                    Employee_Email = x.Employee_Email,
-                                                    Employee_IDCard = x.Employee_IDCard,
-                                                    Employee_Phone = x.Employee_Phone,
-                                                    FirstName = x.FirstName,
-                                                    IsActive = x.IsActive,
-                                                    LastName = x.LastName,
-                                                    Password = x.Password,
-                                                    UpdatedBy = x.UpdatedBy,
-                                                    UpdatedDate = x.UpdatedDate,
-                                                    ImageURL = x.ImageURL,
-                                                    IsSupperAdmin = x.IsSupperAdmin,
-                                                }).ToList();
+                    var data = cxt.CMS_Employees
+                        .Select(x => new CMS_EmployeeModels
+                        {
+                            Id = x.Id,
+                            BirthDate = x.BirthDate,
+                            CreatedBy = x.CreatedBy,
+                            CreatedDate = x.CreatedDate,
+                            Employee_Address = x.Employee_Address,
+                            Employee_Email = x.Employee_Email,
+                            Employee_IDCard = x.Employee_IDCard,
+                            Employee_Phone = x.Employee_Phone,
+                            FirstName = x.FirstName,
+                            IsActive = x.IsActive,
+                            LastName = x.LastName,
+                            Password = x.Password,
+                            UpdatedBy = x.UpdatedBy,
+                            UpdatedDate = x.UpdatedDate,
+                            ImageURL = x.ImageURL,
+                            IsSupperAdmin = x.IsSupperAdmin,
+                            Level = x.Level ?? 0,
+                            Position = x.Position,
+                        }).ToList();
                     return data;
                 }
             }
