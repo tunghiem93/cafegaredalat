@@ -42,6 +42,10 @@ namespace CMS_Shared.CMSEmployees
                                 ImageURL = model.ImageURL,
                                 Level = model.Level,
                                 Position = model.Position,
+                                LinkFB = model.LinkFB,
+                                LinkInstagram = model.LinkInstagram,
+                                LinkPinterest = model.LinkPinterest,
+                                LinkTwiter  = model.LinkTwiter
                             };
                             cxt.CMS_Employees.Add(e);
                         }
@@ -64,6 +68,10 @@ namespace CMS_Shared.CMSEmployees
                                 e.ImageURL = model.ImageURL;
                                 e.Position = model.Position;
                                 e.Level = model.Level;
+                                e.LinkTwiter = model.LinkTwiter;
+                                e.LinkPinterest = model.LinkPinterest;
+                                e.LinkInstagram = model.LinkInstagram;
+                                e.LinkFB = model.LinkFB;
                             }
                         }
                         cxt.SaveChanges();
@@ -131,6 +139,10 @@ namespace CMS_Shared.CMSEmployees
                                                     IsSupperAdmin = x.IsSupperAdmin,
                                                     Level = x.Level ?? 0,
                                                     Position = x.Position,
+                                                    LinkFB = x.LinkFB,
+                                                    LinkInstagram = x.LinkInstagram,
+                                                    LinkPinterest = x.LinkPinterest,
+                                                    LinkTwiter = x.LinkTwiter
                                                 }).FirstOrDefault();
                     return data;
                 }
@@ -166,6 +178,10 @@ namespace CMS_Shared.CMSEmployees
                             IsSupperAdmin = x.IsSupperAdmin,
                             Level = x.Level ?? 0,
                             Position = x.Position,
+                            LinkTwiter = x.LinkTwiter,
+                            LinkPinterest = x.LinkPinterest,
+                            LinkInstagram = x.LinkInstagram,
+                            LinkFB = x.LinkFB
                         }).ToList();
                     return data;
                 }

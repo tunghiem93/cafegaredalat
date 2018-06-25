@@ -41,6 +41,10 @@ namespace CMS_DTO.CMSEmployee
 
         [MaxLength(100, ErrorMessage = "Tên tối đa 100 kí tự")]
         public string Position { get; set; }
+        public string LinkPinterest { get; set; }
+        public string LinkFB { get; set; }
+        public string LinkTwiter { get; set; }
+        public string LinkInstagram { get; set; }
         public CMS_EmployeeModels()
         {
             IsActive = true;

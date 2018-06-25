@@ -108,6 +108,38 @@
         </div>
 
         <div class="form-group">
+            <label class="control-label col-md-2 col-sm-2 col-xs-12 fontLighter">FaceBook :</label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                @Html.TextBoxFor(model => model.LinkFB, new { @class = "form-control", @placeholder = "facebook", @autocomplete = "off" })
+                @Html.ValidationMessageFor(model => model.LinkFB, null, new { @class = "label label-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2 col-sm-2 col-xs-12 fontLighter">Twitter :</label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                @Html.TextBoxFor(model => model.LinkTwiter, new { @class = "form-control", @placeholder = "Twitter", @autocomplete = "off" })
+                @Html.ValidationMessageFor(model => model.LinkTwiter, null, new { @class = "label label-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2 col-sm-2 col-xs-12 fontLighter">Instagram :</label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                @Html.TextBoxFor(model => model.LinkInstagram, new { @class = "form-control", @placeholder = "Instagram", @autocomplete = "off" })
+                @Html.ValidationMessageFor(model => model.LinkInstagram, null, new { @class = "label label-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2 col-sm-2 col-xs-12 fontLighter">Pinterest :</label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                @Html.TextBoxFor(model => model.LinkPinterest, new { @class = "form-control", @placeholder = "Pinterest", @autocomplete = "off" })
+                @Html.ValidationMessageFor(model => model.LinkPinterest, null, new { @class = "label label-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
             <label class="control-label col-md-2 col-sm-2 col-xs-12 fontLighter">Trạng thái</label>
             <div class="col-md-1 col-sm-1 col-xs-12">
                 <label>@Html.CheckBoxFor(model => model.IsActive, new { @class = "icheck" })</label>

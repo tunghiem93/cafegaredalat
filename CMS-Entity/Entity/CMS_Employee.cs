@@ -19,7 +19,7 @@ namespace CMS_Entity.Entity
         public string Employee_IDCard { get; set; }
         public DateTime BirthDate { get; set; }
         public string Password { get; set; }
-        public string LinkBlog { get; set; }
+        public string LinkPinterest { get; set; }
         public string LinkFB { get; set; }
         public string LinkTwiter { get; set; }
         public string LinkInstagram { get; set; }
