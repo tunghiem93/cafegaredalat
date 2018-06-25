@@ -19,5 +19,6 @@ namespace CMS_Entity.Entity
         public string LinkTwiter { get; set; }
         public string LinkInstagram { get; set; }
         public string ImageURL { get; set; }
+        public string BusinessHour { get; set; }
     }
 }
