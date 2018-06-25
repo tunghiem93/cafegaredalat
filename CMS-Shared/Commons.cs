@@ -15,6 +15,8 @@ namespace CMS_Shared
 
         public static int WidthProduct = Convert.ToInt16(ConfigurationManager.AppSettings["WidthProduct"]);
         public static int HeightProduct = Convert.ToInt16(ConfigurationManager.AppSettings["HeightProduct"]);
+        public static int WidthCate = Convert.ToInt16(ConfigurationManager.AppSettings["WidthCate"]);
+        public static int HeightCate = Convert.ToInt16(ConfigurationManager.AppSettings["HeightCate"]);
 
         public static int WidthImageNews = Convert.ToInt16(ConfigurationManager.AppSettings["WidthImageNews"]);
         public static int HeightImageNews = Convert.ToInt16(ConfigurationManager.AppSettings["HeightImageNews"]);

@@ -85,7 +85,7 @@ namespace CMS_Web.Areas.Admin.Controllers
                         ms.Write(photoByte, 0, photoByte.Length);
                         System.Drawing.Image imageTmp = System.Drawing.Image.FromStream(ms, true);
 
-                        ImageHelper.Me.SaveCroppedImage(imageTmp, path, model.ImageURL, ref photoByte);
+                        ImageHelper.Me.SaveCroppedImage(imageTmp, path, model.ImageURL, ref photoByte, Commons.WidthCate, Commons.WidthCate, Commons.HeightCate);
                     }
                     return RedirectToAction("Index");
                 }
@@ -152,7 +152,7 @@ namespace CMS_Web.Areas.Admin.Controllers
                         ms.Write(photoByte, 0, photoByte.Length);
                         System.Drawing.Image imageTmp = System.Drawing.Image.FromStream(ms, true);
 
-                        ImageHelper.Me.SaveCroppedImage(imageTmp, path, model.ImageURL, ref photoByte);
+                        ImageHelper.Me.SaveCroppedImage(imageTmp, path, model.ImageURL, ref photoByte, Commons.WidthCate, Commons.WidthCate, Commons.HeightCate);
                     }
                     return RedirectToAction("Index");
                 }                    
