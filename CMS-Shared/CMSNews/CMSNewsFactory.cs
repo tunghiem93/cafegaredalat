@@ -112,22 +112,28 @@ namespace CMS_Shared.CMSNews
             {
                 using (var cxt = new CMS_Context())
                 {
-                    var e = cxt.CMS_News.Where(x => x.Id.Equals(Id)).FirstOrDefault();
-                    if (e != null)
+                    var item = cxt.CMS_News.Where(x => x.Id.Equals(Id)).FirstOrDefault();
+                    if (item != null)
                     {
                         var o = new CMS_NewsModels
                         {
-                            Id = e.Id,
-                            CreatedBy = e.CreatedBy,
-                            CreatedDate = e.CreatedDate,
-                            Description = e.Description,
-                            IsActive = e.IsActive,
-                            UpdatedBy = e.UpdatedBy,
-                            UpdatedDate = e.UpdatedDate,
-                            Title = e.Title,
-                            Short_Description = e.Short_Description,
-                            ImageURL = e.ImageURL
+                            Id = item.Id,
+                            CreatedBy = item.CreatedBy,
+                            CreatedDate = item.CreatedDate,
+                            Description = item.Description,
+                            IsActive = item.IsActive,
+                            UpdatedBy = item.UpdatedBy,
+                            UpdatedDate = item.UpdatedDate,
+                            Title = item.Title,
+                            Short_Description = item.Short_Description,
+                            ImageURL = item.ImageURL
                         };
+
+                        /* update empID */
+                        var lstEmp = cxt.CMS_Employees.Where(e => e.Id == o.CreatedBy || e.Id == o.UpdatedBy).ToList();
+                        o.CreatedBy = lstEmp.Where(e => e.Id == o.CreatedBy).Select(e => e.FirstName + " " + e.LastName).FirstOrDefault();
+                        o.UpdatedBy = lstEmp.Where(e => e.Id == o.UpdatedBy).Select(e => e.FirstName + " " + e.LastName).FirstOrDefault();
+
                         return o;
                     }
                 }
@@ -143,20 +149,22 @@ namespace CMS_Shared.CMSNews
                 using (var cxt = new CMS_Context())
                 {
                     var data = cxt.CMS_News
-                                               .Select(x => new CMS_NewsModels
-                                               {
-                                                   Id = x.Id,
-                                                   Title = x.Title,
-                                                   Short_Description = x.Short_Description,
-                                                   ImageURL = x.ImageURL,
-                                                   CreatedBy = x.CreatedBy,
-                                                   CreatedDate = x.CreatedDate,
-                                                   Description = x.Description,
-                                                   IsActive = x.IsActive,
+                        .Join(cxt.CMS_Employees, n=> n.CreatedBy, e=> e.Id, (n,c)=> new { n, c })
+                        .Join(cxt.CMS_Employees, n=> n.n.UpdatedBy, m=> m.Id, (n,m)=> new { n.n, n.c, m})
+                        .Select(x => new CMS_NewsModels
+                        {
+                            Id = x.n.Id,
+                            Title = x.n.Title,
+                            Short_Description = x.n.Short_Description,
+                            ImageURL = x.n.ImageURL,
+                            CreatedBy = x.c.FirstName + " " + x.c.LastName,
+                            CreatedDate = x.n.CreatedDate,
+                            Description = x.n.Description,
+                            IsActive = x.n.IsActive,
 
-                                                   UpdatedBy = x.UpdatedBy,
-                                                   UpdatedDate = x.UpdatedDate,
-                                               }).ToList();
+                            UpdatedBy = x.m.FirstName + " " + x.m.LastName,
+                            UpdatedDate = x.n.UpdatedDate,
+                        }).ToList();
                     return data;
                 }
             }
