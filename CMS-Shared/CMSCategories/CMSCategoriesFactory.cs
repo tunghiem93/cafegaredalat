@@ -115,8 +115,9 @@ namespace CMS_Shared.CMSCategories
                         UpdatedBy = x.UpdatedBy,
                         UpdatedDate = x.UpdatedDate,
                         ParentId = x.ParentId,
-                        ImageURL = x.ImageURL
+                        ImageURL = x.ImageURL,
                     }).Where(x=>x.Id.Equals(Id)).FirstOrDefault();
+                    
                     return data;
                 }
             }
@@ -144,6 +145,19 @@ namespace CMS_Shared.CMSCategories
                         ParentId = x.ParentId,
                         ImageURL = x.ImageURL
                     }).ToList();
+
+                    /* count number of product */
+                    var lstNumOfProduct = cxt.CMS_Products.GroupBy(o => o.CategoryId).Select(o => new
+                    {
+                        ID = o.Key,
+                        Count = o.Count(),
+                    }).ToList();
+                    data.ForEach(o =>
+                    {
+                        o.NumberOfProduct = lstNumOfProduct.Where(c => c.ID == o.Id).Select(c => c.Count).FirstOrDefault();
+                    });
+
+                    /* response data */
                     return data;
                 }
             }catch(Exception ex) { }
