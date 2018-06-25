@@ -1,7 +1,11 @@
 ﻿@{
-//Layout = "~/Areas/Clients/Views/Shared/_Layout.cshtml";
+    Layout = "~/Areas/Clients/Views/Shared/_Layout.cshtml";
 }
 @model CMS_DTO.CMSNews.CMS_NewsViewModel
+
+<!-- Breadcrumb Area Start-->
+@Html.Partial("_breadcrumb", new Dictionary<string, string> { { "A", "Blog" }, { "B", "Chi tiết" } })
+<!-- Breadcrumb Area End -->
 
 <!-- Blog Deatils Area Start -->
 <section class="blog-details-area ptb-100 blog-section">
@@ -32,91 +36,60 @@
                 <div class="widget">
                     <form action="#" method="post">
                         <div class="search-box">
-                            <input type="text" placeholder="Search here . . . .">
+                            <input type="text" placeholder="Tìm kiếm . . . .">
                             <button type="button"><i class="zmdi zmdi-search"></i></button>
                         </div>
                     </form>
                 </div>
                 <div class="single-widget">
                     <h4>Thể loại</h4>
-                    @if (true)
-                    {
-                        /**/
-                    }
                     <ul>
-                        <li>
-                            <a href="menu.html"><i class="zmdi zmdi-caret-left"></i>Americano koffee</a>
-                        </li>
-                        <li>
-                            <a href="menu.html"><i class="zmdi zmdi-caret-left"></i>Moccha koffee</a>
-                        </li>
-                        <li>
-                            <a href="menu.html"><i class="zmdi zmdi-caret-left"></i>Americano koffee</a>
-                        </li>
-                        <li>
-                            <a href="menu.html"><i class="zmdi zmdi-caret-left"></i>Cold koffee</a>
-                        </li>
-                        <li>
-                            <a href="menu.html"><i class="zmdi zmdi-caret-left"></i>Black koffee</a>
-                        </li>
+                        @if (Model.ListCate != null && Model.ListCate.Any())
+                        {
+                            foreach (var item in Model.ListCate)
+                            {
+                                <li>
+                                    <a href="@Url.Action("CategoriesDetail", "Menus", new { id=item.Id })"><i class="zmdi zmdi-caret-left"></i>@string.Format("{0}", (item.CategoryName.Length > 25) ? (item.CategoryName.Substring(0, 25) + "...") : item.CategoryName)</a>
+                                </li>
+                            }
+                        }
                     </ul>
-                </div>
+                    </div>
                 <div class="single-widget">
                     <h4>Tin tức mới</h4>
-                    <div class="recent-item">
-                        <a href="blog.html"><img src="img/blog/s-7.jpg" alt=""></a>
-                        <div class="recent-text">
-                            <h5><a href="blog.html">consectetur adipisi elit</a></h5>
-                            <div class="recent-info">
-                                <a href="#">By Fiona</a>
-                                <a href="#"><i class="zmdi zmdi-comments"></i>30</a>
+                    @if (Model.ListNewsNew != null && Model.ListNewsNew.Any())
+                    {
+                        foreach (var item in Model.ListNewsNew)
+                        {
+                            <div class="recent-item">
+                                <a href="@Url.Action("NewsDetail", "News", new { id=item.Id })"><img src="@item.ImageURL" alt="@item.Title"></a>
+                                <div class="recent-text">
+                                    <h5><a href="blog.html">@string.Format("{0}", (item.Title.Length > 25) ? (item.Title.Substring(0, 25) + "...") : item.Title)</a></h5>
+                                    <div class="recent-info">
+                                        <a href="#">@Html.Raw(item.CreatedBy)</a>
+                                        <a href="#"><i class="zmdi zmdi-comments"></i>1</a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="recent-item">
-                        <a href="blog.html"><img src="img/blog/s-8.jpg" alt=""></a>
-                        <div class="recent-text">
-                            <h5><a href="blog.html">Ut enim ad minim nostrud</a></h5>
-                            <div class="recent-info">
-                                <a href="#">By Robert</a>
-                                <a href="#"><i class="zmdi zmdi-comments"></i>30</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="recent-item">
-                        <a href="blog.html"><img src="img/blog/s-9.jpg" alt=""></a>
-                        <div class="recent-text">
-                            <h5><a href="blog.html">Lorem ipsum dolo sitedh</a></h5>
-                            <div class="recent-info">
-                                <a href="#">By Harry</a>
-                                <a href="#"><i class="zmdi zmdi-comments"></i>30</a>
-                            </div>
-                        </div>
-                    </div>
+                        }
+                    }
                 </div>
                 <div class="single-widget">
                     <h4>Phổ biến</h4>
                     <div class="tags">
                         <ul>
-                            <li><a href="menu.html">Americano koffee</a></li>
-                            <li><a href="menu.html">Cold koffee</a></li>
-                            <li><a href="menu.html">Moccha koffee</a></li>
-                            <li><a href="menu.html">Black koffee</a></li>
-                            <li><a href="menu.html">Americano koffee</a></li>
+                            @if (Model.ListProduct != null && Model.ListProduct.Any())
+                            {
+                                foreach (var item in Model.ListProduct)
+                                {
+                                    <li>
+                                        <a href="@Url.Action("Index", "Menus")"><img src="@item.ImageURL" alt="@item.ProductName"></a>
+                                    </li>
+                                }
+                            }
                         </ul>
                     </div>
-                </div>
-                <div class="single-widget">
-                    <h4>Sản phẩm</h4>
-                    <div class="gallery">
-                        <a href="blog.html"><img src="img/blog/s-1.jpg" alt=""></a>
-                        <a href="blog.html"><img src="img/blog/s-2.jpg" alt=""></a>
-                        <a href="blog.html"><img src="img/blog/s-3.jpg" alt=""></a>
-                        <a href="blog.html"><img src="img/blog/s-4.jpg" alt=""></a>
-                        <a href="blog.html"><img src="img/blog/s-5.jpg" alt=""></a>
-                        <a href="blog.html"><img src="img/blog/s-6.jpg" alt=""></a>
-                    </div>
-                </div>
+                </div>                
             </div>
         </div>
     </div>
