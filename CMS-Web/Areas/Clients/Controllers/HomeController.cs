@@ -169,19 +169,7 @@ namespace CMS_Web.Areas.Clients.Controllers
                             x.ImageURL = Commons.HostImage + "Products/" + _Image.ImageURL;
                     }
                 });
-                model.Key = Key;
-                model.ListProduct = data.OrderByDescending(x => x.CreatedDate).Skip(0).Take(12).ToList();
-                model.TotalProduct = data.Count;
-                var pageIndex = 0;
-                if (data.Count % 12 == 0)
-                    pageIndex = data.Count / 12;
-                else
-                    pageIndex = Convert.ToInt16(data.Count / 12) + 1;
-
-                if (pageIndex > 1)
-                    model.TotalPage = 2;
-                else
-                    model.IsAddMore = true;
+                model.ListProduct = data;
             }
             return View(model);
         }
