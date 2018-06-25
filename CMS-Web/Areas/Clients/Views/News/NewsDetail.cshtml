@@ -1,37 +1,24 @@
 ﻿@{
-    Layout = "~/Areas/Clients/Views/Shared/_Layout.cshtml";
+//Layout = "~/Areas/Clients/Views/Shared/_Layout.cshtml";
 }
 @model CMS_DTO.CMSNews.CMS_NewsViewModel
-@using CMS_Shared;
 
-<div>
-    <!-- Blog Deatils Area Start -->
-    <section class="blog-details-area ptb-100 blog-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-9 col-md-8">
-                    <img src="img/blog/l-1.jpg" alt="">
-                    <h4 class="details-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ut rutrum nunc. </h4>
+<!-- Blog Deatils Area Start -->
+<section class="blog-details-area ptb-100 blog-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-md-8">
+                @if (Model.CMS_News != null)
+                {
+                    var itemDetail = Model.CMS_News;
+                    <img src="@itemDetail.ImageURL" alt="">
+                    <h4 class="details-title">@itemDetail.Title</h4>
+                    <h5 class="details-title">@itemDetail.Short_Description</h5>
                     <div class="post-information">
-                        <a href="#">25 March 2017</a>
-                        <a href="#">Comments (60)</a>
+                        <a href="#">@itemDetail.CreatedDate.ToString("MM/dd/yyyy")</a>
+                        @*<a href="#">Comments (60)</a>*@
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ut rutrum nunc. Donec rhoncus lacus sed mauris feugiat ultrices. Mauris ish veles  ish sapien sem. lovess uisque nec lectus sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut fermentum est, it’ss laoreet is congue nulla. Mauris bibendumess pellentesque facilisis. Maecenas tw ante odio, rutrum nec viverra.justo ma tristique mi, lorem ipsum dolor sit amet. rutrum nec viverra.justo magna tristique mi, aenean nis massa,scelerisque impertied feubiat.</p>
-                    <p>Aenean nisl massa, scelerisque imperdiet feugiat et, rutrum ut nibh. Integer elit sem, rutrum vestibulum nunc nec, imperdiet tincidunt es odio. Aenean ant aliquet, ante non pellentesque laoreet, lorem leo egestas metus, eget pellentesque nisi sem non ex. Nulla sollicitudin lorem</p>
-                    <div class="blog-details-content">
-                        <div class="content-image">
-                            <img src="img/blog/l-2.jpg" alt="">
-                        </div>
-                        <div class="content-text">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut utss  rutrum nunc. Donec rhoncus lacus sed mauris feugiat ultrices. Mauris ish veles  ish sapien sem. lovess uisque nec lectus</p>
-                            <div class="content-list">
-                                <span><i class="zmdi zmdi-chevron-right"></i>Aenean nisl massa, scelerisque imperdiet feugiat et, </span>
-                                <span><i class="zmdi zmdi-chevron-right"></i>Aenean nisl massa, scelerisque imperdiet feugiat et, </span>
-                                <span><i class="zmdi zmdi-chevron-right"></i>Aenean nisl massa, scelerisque imperdiet feugiat et, </span>
-                                <span><i class="zmdi zmdi-chevron-right"></i>Aenean nisl massa, scelerisque imperdiet feugiat et, </span>
-                            </div>
-                        </div>
-                    </div>
+
                     <div class="social-links fix">
                         <a href="#"><i class="zmdi zmdi-facebook"></i></a>
                         <a href="#"><i class="zmdi zmdi-google-plus"></i></a>
@@ -39,138 +26,102 @@
                         <a href="#"><i class="zmdi zmdi-pinterest"></i></a>
                         <a href="#"><i class="zmdi zmdi-linkedin"></i></a>
                     </div>
-                    <div class="comments fix">
-                        <h4>All comments</h4>
-                        <div class="single-comment fix">
-                            <div class="author-image">
-                                <img alt="" src="img/comment/1.jpg">
-                            </div>
-                            <div class="comment-text fix">
-                                <h5><a href="#">Noor bhuiyan</a></h5>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras aliquam, quam congue dictum luctus, lacus magna congue ante, in finibus dui sapien eu dolor. Integer tincidunt suscipit erat, nec laoreet ipsum vestibulum sed.</p>
-                                <a href="#"><i class="zmdi zmdi-mail-reply"></i></a>
-                            </div>
+                }
+            </div>
+            <div class="col-lg-3 col-md-4">
+                <div class="widget">
+                    <form action="#" method="post">
+                        <div class="search-box">
+                            <input type="text" placeholder="Search here . . . .">
+                            <button type="button"><i class="zmdi zmdi-search"></i></button>
                         </div>
-                        <div class="single-comment fix reply-comment">
-                            <div class="author-image">
-                                <img alt="" src="img/comment/2.jpg">
-                            </div>
-                            <div class="comment-text fix">
-                                <h5><a href="#">Robert Harry</a></h5>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras aliquam, quam congue dictum luctus, lacus magna congue ante, in finibus dui sapien eu dolor. Integer tincidunt suscipit erat,</p>
-                                <a href="#"><i class="zmdi zmdi-mail-reply"></i></a>
+                    </form>
+                </div>
+                <div class="single-widget">
+                    <h4>Thể loại</h4>
+                    @if (true)
+                    {
+                        /**/
+                    }
+                    <ul>
+                        <li>
+                            <a href="menu.html"><i class="zmdi zmdi-caret-left"></i>Americano koffee</a>
+                        </li>
+                        <li>
+                            <a href="menu.html"><i class="zmdi zmdi-caret-left"></i>Moccha koffee</a>
+                        </li>
+                        <li>
+                            <a href="menu.html"><i class="zmdi zmdi-caret-left"></i>Americano koffee</a>
+                        </li>
+                        <li>
+                            <a href="menu.html"><i class="zmdi zmdi-caret-left"></i>Cold koffee</a>
+                        </li>
+                        <li>
+                            <a href="menu.html"><i class="zmdi zmdi-caret-left"></i>Black koffee</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="single-widget">
+                    <h4>Tin tức mới</h4>
+                    <div class="recent-item">
+                        <a href="blog.html"><img src="img/blog/s-7.jpg" alt=""></a>
+                        <div class="recent-text">
+                            <h5><a href="blog.html">consectetur adipisi elit</a></h5>
+                            <div class="recent-info">
+                                <a href="#">By Fiona</a>
+                                <a href="#"><i class="zmdi zmdi-comments"></i>30</a>
                             </div>
                         </div>
                     </div>
-                    <div class="new-comment-post">
-                        <h4>Leave a Comment</h4>
-                        <form action="#" method="post">
-                            <div class="comment-form">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <input type="text" name="name" placeholder="Name">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="email" name="email" placeholder="E-mail">
-                                    </div>
-                                </div>
-                                <textarea name="post-comment" cols="30" rows="10" placeholder="Message"></textarea>
-                                <button class="default-btn" type="submit" value=""><span>send message</span></button>
+                    <div class="recent-item">
+                        <a href="blog.html"><img src="img/blog/s-8.jpg" alt=""></a>
+                        <div class="recent-text">
+                            <h5><a href="blog.html">Ut enim ad minim nostrud</a></h5>
+                            <div class="recent-info">
+                                <a href="#">By Robert</a>
+                                <a href="#"><i class="zmdi zmdi-comments"></i>30</a>
                             </div>
-                        </form>
+                        </div>
+                    </div>
+                    <div class="recent-item">
+                        <a href="blog.html"><img src="img/blog/s-9.jpg" alt=""></a>
+                        <div class="recent-text">
+                            <h5><a href="blog.html">Lorem ipsum dolo sitedh</a></h5>
+                            <div class="recent-info">
+                                <a href="#">By Harry</a>
+                                <a href="#"><i class="zmdi zmdi-comments"></i>30</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4">
-                    <div class="widget">
-                        <form action="#" method="post">
-                            <div class="search-box">
-                                <input type="text" placeholder="Search here . . . .">
-                                <button type="button"><i class="zmdi zmdi-search"></i></button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="single-widget">
-                        <h4>Categories</h4>
+                <div class="single-widget">
+                    <h4>Phổ biến</h4>
+                    <div class="tags">
                         <ul>
-                            <li>
-                                <a href="menu.html"><i class="zmdi zmdi-caret-left"></i>Americano koffee</a>
-                            </li>
-                            <li>
-                                <a href="menu.html"><i class="zmdi zmdi-caret-left"></i>Moccha koffee</a>
-                            </li>
-                            <li>
-                                <a href="menu.html"><i class="zmdi zmdi-caret-left"></i>Americano koffee</a>
-                            </li>
-                            <li>
-                                <a href="menu.html"><i class="zmdi zmdi-caret-left"></i>Cold koffee</a>
-                            </li>
-                            <li>
-                                <a href="menu.html"><i class="zmdi zmdi-caret-left"></i>Black koffee</a>
-                            </li>
+                            <li><a href="menu.html">Americano koffee</a></li>
+                            <li><a href="menu.html">Cold koffee</a></li>
+                            <li><a href="menu.html">Moccha koffee</a></li>
+                            <li><a href="menu.html">Black koffee</a></li>
+                            <li><a href="menu.html">Americano koffee</a></li>
                         </ul>
                     </div>
-                    <div class="single-widget">
-                        <h4>Recent Post</h4>
-                        <div class="recent-item">
-                            <a href="blog.html"><img src="img/blog/s-7.jpg" alt=""></a>
-                            <div class="recent-text">
-                                <h5><a href="blog.html">consectetur adipisi elit</a></h5>
-                                <div class="recent-info">
-                                    <a href="#">By Fiona</a>
-                                    <a href="#"><i class="zmdi zmdi-comments"></i>30</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="recent-item">
-                            <a href="blog.html"><img src="img/blog/s-8.jpg" alt=""></a>
-                            <div class="recent-text">
-                                <h5><a href="blog.html">Ut enim ad minim nostrud</a></h5>
-                                <div class="recent-info">
-                                    <a href="#">By Robert</a>
-                                    <a href="#"><i class="zmdi zmdi-comments"></i>30</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="recent-item">
-                            <a href="blog.html"><img src="img/blog/s-9.jpg" alt=""></a>
-                            <div class="recent-text">
-                                <h5><a href="blog.html">Lorem ipsum dolo sitedh</a></h5>
-                                <div class="recent-info">
-                                    <a href="#">By Harry</a>
-                                    <a href="#"><i class="zmdi zmdi-comments"></i>30</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single-widget">
-                        <h4>Popolar tag</h4>
-                        <div class="tags">
-                            <ul>
-                                <li><a href="menu.html">Americano koffee</a></li>
-                                <li><a href="menu.html">Cold koffee</a></li>
-                                <li><a href="menu.html">Moccha koffee</a></li>
-                                <li><a href="menu.html">Black koffee</a></li>
-                                <li><a href="menu.html">Americano koffee</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="single-widget">
-                        <h4>Our Gallery</h4>
-                        <div class="gallery">
-                            <a href="blog.html"><img src="img/blog/s-1.jpg" alt=""></a>
-                            <a href="blog.html"><img src="img/blog/s-2.jpg" alt=""></a>
-                            <a href="blog.html"><img src="img/blog/s-3.jpg" alt=""></a>
-                            <a href="blog.html"><img src="img/blog/s-4.jpg" alt=""></a>
-                            <a href="blog.html"><img src="img/blog/s-5.jpg" alt=""></a>
-                            <a href="blog.html"><img src="img/blog/s-6.jpg" alt=""></a>
-                        </div>
+                </div>
+                <div class="single-widget">
+                    <h4>Sản phẩm</h4>
+                    <div class="gallery">
+                        <a href="blog.html"><img src="img/blog/s-1.jpg" alt=""></a>
+                        <a href="blog.html"><img src="img/blog/s-2.jpg" alt=""></a>
+                        <a href="blog.html"><img src="img/blog/s-3.jpg" alt=""></a>
+                        <a href="blog.html"><img src="img/blog/s-4.jpg" alt=""></a>
+                        <a href="blog.html"><img src="img/blog/s-5.jpg" alt=""></a>
+                        <a href="blog.html"><img src="img/blog/s-6.jpg" alt=""></a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- Blog Deatils Area End -->
-</div>
+    </div>
+</section>
+<!-- Blog Deatils Area End -->
 
 <script type="text/javascript">
 </script>

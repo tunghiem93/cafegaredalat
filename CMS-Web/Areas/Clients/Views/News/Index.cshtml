@@ -4,6 +4,43 @@
 @model CMS_DTO.CMSNews.CMS_NewsViewModel
 @using CMS_Shared;
 
+<!-- Blog Area Start -->
+<section class="blog-area ptb-100 blog-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="section-title text-center">
+                    <h1>Blog</h1>
+                    <span><img src="~/images/banner/koffee.png" alt=""></span>
+                    <p>Bạn có thể tìm hiểu được tất cả các thức uống mà bạn muốn khi bạn thường xuyên theo dõi cập nhập tin tức từ trang web của chúng tôi. </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @if (Model.ListNewsNew != null && Model.ListNewsNew.Any())
+            {
+                foreach (var item in Model.ListNewsNew)
+                {
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                        <div class="single-blog">
+                            <a href="/News/NewsDetail/@item.Id" class="blog-image">
+                                <img src="@item.ImageURL" alt="@item.Title">
+                            </a>
+                            <div class="blog-text text-center">
+                                <span>@item.CreatedDate.ToString("MM/dd/yyyy")</span>
+                                <h4><a href="blog-details.html">@string.Format("{0}", (item.Title.Length > 35) ? (item.Title.Substring(0, 35) + "...") : item.Title)</a></h4>
+                                <p>@string.Format("{0}", (item.Short_Description.Length > 150) ? (item.Short_Description.Substring(0, 150) + "...") : item.Short_Description)</p>
+                                <a href="/News/NewsDetail/@item.Id">Xem thêm</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</section>
+<!-- Blog Area End -->
+
 <script type="text/javascript">
 </script>
 

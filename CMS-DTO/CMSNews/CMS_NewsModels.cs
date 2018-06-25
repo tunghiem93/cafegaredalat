@@ -1,4 +1,6 @@
 ﻿using CMS_DTO.CMSBase;
+using CMS_DTO.CMSCategories;
+using CMS_DTO.CMSProduct;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -39,11 +41,15 @@ namespace CMS_DTO.CMSNews
         public List<CMS_NewsModels> ListNews { get; set; }
         public List<CMS_NewsModels> ListNewsNew { get; set; }
         public CMS_NewsModels CMS_News { get; set; }
+        public List<CMSCategoriesModels> ListCate { get; set; }
+        public List<CMS_ProductsModels> ListProduct { get; set; }
         public CMS_NewsViewModel()
         {
             ListNews = new List<CMS_NewsModels>();
             ListNewsNew = new List<CMS_NewsModels>();
             CMS_News = new CMS_NewsModels();
+            ListCate = new List<CMSCategoriesModels>();
+            ListProduct = new List<CMS_ProductsModels>();
         }
     }
 }
