@@ -36,9 +36,9 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2 col-sm-2 col-xs-12 fontLighter">Họ Tên</label>
+            <label class="control-label col-md-2 col-sm-2 col-xs-12 fontLighter">Họ</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-                @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", @placeholder = "Họ tên", @autocomplete = "off" })
+                @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", @placeholder = "Họ", @autocomplete = "off" })
                 @Html.ValidationMessageFor(model => model.FirstName, null, new { @class = "label label-danger" })
             </div>
         </div>

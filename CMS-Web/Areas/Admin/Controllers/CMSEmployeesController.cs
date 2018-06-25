@@ -193,6 +193,7 @@ namespace CMS_Web.Areas.Admin.Controllers
         {
             try
             {
+                ModelState.Clear();
                 if (!ModelState.IsValid)
                 {
                     Response.StatusCode = (int)HttpStatusCode.BadRequest;

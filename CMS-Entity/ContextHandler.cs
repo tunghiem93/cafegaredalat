@@ -58,7 +58,8 @@ namespace CMS_Entity
                             BirthDate = DateTime.Now,
                             UpdatedDate = DateTime.Now,
                             CreatedDate = DateTime.Now,
-                            Password = "5bodbeBGJXU="
+                            Password = "5bodbeBGJXU=",
+                            IsSupperAdmin = true,
                         };
                         context.CMS_Employees.Add(emp);
                     }

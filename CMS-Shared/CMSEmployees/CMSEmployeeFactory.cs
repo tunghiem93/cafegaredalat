@@ -123,7 +123,8 @@ namespace CMS_Shared.CMSEmployees
                                                     Password = x.Password,
                                                     UpdatedBy = x.UpdatedBy,
                                                     UpdatedDate = x.UpdatedDate,
-                                                    ImageURL = x.ImageURL
+                                                    ImageURL = x.ImageURL,
+                                                    IsSupperAdmin = x.IsSupperAdmin,
                                                 }).FirstOrDefault();
                     return data;
                 }
@@ -154,7 +155,8 @@ namespace CMS_Shared.CMSEmployees
                                                     Password = x.Password,
                                                     UpdatedBy = x.UpdatedBy,
                                                     UpdatedDate = x.UpdatedDate,
-                                                    ImageURL = x.ImageURL
+                                                    ImageURL = x.ImageURL,
+                                                    IsSupperAdmin = x.IsSupperAdmin,
                                                 }).ToList();
                     return data;
                 }
