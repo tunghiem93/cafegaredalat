@@ -86,7 +86,7 @@ namespace CMS_Web.Areas.Admin.Controllers
                         ms.Write(photoByte, 0, photoByte.Length);
                         System.Drawing.Image imageTmp = System.Drawing.Image.FromStream(ms, true);
 
-                        ImageHelper.Me.SaveCroppedImage(imageTmp, path, model.ImageURL, ref photoByte);
+                        ImageHelper.Me.SaveCroppedImage(imageTmp, path, model.ImageURL, ref photoByte,400,Commons.WidthEmp,Commons.HeightEmp);
                     }
                     return RedirectToAction("Index");
                 }
@@ -125,7 +125,7 @@ namespace CMS_Web.Areas.Admin.Controllers
                 }
                 if (!string.IsNullOrEmpty(model.ImageURL))
                 {
-                    model.ImageURL = model.ImageURL.Replace(Commons._PublicImages, "").Replace("Employees/", "").Replace(Commons.Image200_100, "");
+                    model.ImageURL = model.ImageURL.Replace(Commons._PublicImages, "").Replace("Employees/", "").Replace(Commons.Image268_297, "");
                     temp = model.ImageURL;
                 }
 
@@ -156,7 +156,7 @@ namespace CMS_Web.Areas.Admin.Controllers
                         ms.Write(photoByte, 0, photoByte.Length);
                         System.Drawing.Image imageTmp = System.Drawing.Image.FromStream(ms, true);
 
-                        ImageHelper.Me.SaveCroppedImage(imageTmp, path, model.ImageURL, ref photoByte);
+                        ImageHelper.Me.SaveCroppedImage(imageTmp, path, model.ImageURL, ref photoByte,400,Commons.WidthEmp,Commons.HeightEmp);
                     }
                     return RedirectToAction("Index");
                 }
