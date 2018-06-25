@@ -61,7 +61,7 @@
         </div>
         <div class="single-contact">
             <div class="information text-center">
-                <h4><span>Open Hour :</span>8.Am-6.Pm</h4>
+                <h4><span>Giờ mở cửa :</span>@Model.Company.Businesshour</h4>
             </div>
         </div>
     </section>
@@ -79,7 +79,7 @@
                         <h3>About Koffee Shop</h3>
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown thing took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, this is remaining essential.</p>
                         <p>Type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, this is remaining essential.</p>
-                        <a href="about.html" class="default-btn"><span>Read more</span></a>
+                        <a href="javascript:void(0)" class="default-btn"><span>Xem thêm</span></a>
                     </div>
                 </div>
             </div>
@@ -120,7 +120,6 @@
                         else
                         {
                             <img src="@Url.Content(item.ImageURL)" alt="">
-                            @*<img src="@Url.Content("~/Uploads/Products/1.jpg")" alt="">*@
                         }
                         
                         <div class="item-hover text-center">
