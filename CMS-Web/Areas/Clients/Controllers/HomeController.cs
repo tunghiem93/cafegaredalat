@@ -3,6 +3,7 @@ using CMS_DTO.CMSSession;
 using CMS_Shared;
 using CMS_Shared.CMSCategories;
 using CMS_Shared.CMSCompanies;
+using CMS_Shared.CMSEmployees;
 using CMS_Shared.CMSNews;
 using CMS_Shared.CMSProducts;
 using CMS_Shared.Utilities;
@@ -20,12 +21,14 @@ namespace CMS_Web.Areas.Clients.Controllers
         private CMSCompaniesFactory _facCom;
         private CMSCategoriesFactory _facCate;
         private CMSNewsFactory _facNews;
+        private CMSEmployeeFactory _facEmp;
         public HomeController()
         {
             _fac = new CMSProductFactory();
             _facCom = new CMSCompaniesFactory();
             _facCate = new CMSCategoriesFactory();
             _facNews = new CMSNewsFactory();
+            _facEmp = new CMSEmployeeFactory();
         }
         // GET: Clients/Home
         public ActionResult Index()
@@ -79,6 +82,19 @@ namespace CMS_Web.Areas.Clients.Controllers
                     {
                         if (!string.IsNullOrEmpty(x.ImageURL))
                             x.ImageURL = "~/Uploads/News/" + x.ImageURL;
+                    });
+                }
+
+                // employee
+                model.ListEmployee = _facEmp.GetList().OrderBy(x => x.Level).Skip(0).Take(4).ToList();
+                if(model.ListEmployee != null && model.ListEmployee.Any())
+                {
+                    model.ListEmployee.ForEach(x =>
+                    {
+                        if (!string.IsNullOrEmpty(x.ImageURL))
+                            x.ImageURL = "~/Uploads/Employees/" + x.ImageURL;
+                        else
+                            x.ImageURL = "";
                     });
                 }
                 return View(model);

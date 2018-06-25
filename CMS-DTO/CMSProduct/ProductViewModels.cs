@@ -1,5 +1,6 @@
 ﻿using CMS_DTO.CMSCategories;
 using CMS_DTO.CMSCompany;
+using CMS_DTO.CMSEmployee;
 using CMS_DTO.CMSNews;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace CMS_DTO.CMSProduct
         public List<CMS_ProductsModels> ListProduct { get; set; }
         public CMS_CompanyModels Company { get; set; }
         public List<CMS_NewsModels> ListNews { get; set; }
+        public List<CMS_EmployeeModels> ListEmployee { get; set; }
 
         public string CateID { get; set; }
         public List<CMSCategoriesModels> ListCate { get; set; }
@@ -28,6 +30,7 @@ namespace CMS_DTO.CMSProduct
             ListProduct = new List<CMS_ProductsModels>();
             Company = new CMS_CompanyModels();
             ListNews = new List<CMS_NewsModels>();
+            ListEmployee = new List<CMS_EmployeeModels>();
         }
     }
 }
