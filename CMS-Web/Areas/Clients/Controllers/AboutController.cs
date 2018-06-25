@@ -1,4 +1,5 @@
 ﻿using CMS_DTO.CMSProduct;
+using CMS_Shared;
 using CMS_Shared.CMSEmployees;
 using System;
 using System.Collections.Generic;
@@ -29,7 +30,7 @@ namespace CMS_Web.Areas.Clients.Controllers
                     if (!string.IsNullOrEmpty(x.ImageURL))
                         x.ImageURL = "~/Uploads/Employees/" + x.ImageURL;
                     else
-                        x.ImageURL = "";
+                        x.ImageURL = Commons.Image268_297;
                 });
             }
             return View(model);
