@@ -1,4 +1,5 @@
 ﻿using CMS_DTO.CMSNews;
+using CMS_DTO.CMSSession;
 using CMS_Shared;
 using CMS_Shared.CMSNews;
 using CMS_Shared.Utilities;
@@ -73,6 +74,14 @@ namespace CMS_Web.Areas.Admin.Controllers
                     model.PictureUpload = null;
                     photoByte = imgByte;
                 }
+
+                if (HttpContext.Session != null && HttpContext.Session["User"] != null)
+                {
+                    var user = (UserSession)HttpContext.Session["User"];
+                    model.CreatedBy = user.UserName;
+                    model.UpdatedBy = user.UserName;
+                }
+
                 var msg = "";
                 var result = _factory.CreateOrUpdate(model, ref msg);
                 if (result)
@@ -84,11 +93,11 @@ namespace CMS_Web.Areas.Admin.Controllers
                         ms.Write(photoByte, 0, photoByte.Length);
                         System.Drawing.Image imageTmp = System.Drawing.Image.FromStream(ms, true);
 
-                        ImageHelper.Me.SaveCroppedImage(imageTmp, path, model.ImageURL, ref photoByte,400,Commons.WidthImageNews,Commons.HeightImageNews);
+                        ImageHelper.Me.SaveCroppedImage(imageTmp, path, model.ImageURL, ref photoByte, 400, Commons.WidthImageNews, Commons.HeightImageNews);
                     }
                     return RedirectToAction("Index");
                 }
-                    
+
                 ModelState.AddModelError("Title", msg);
                 Response.StatusCode = (int)HttpStatusCode.BadRequest;
                 return PartialView("_Create", model);
@@ -105,7 +114,7 @@ namespace CMS_Web.Areas.Admin.Controllers
         {
             var model = GetDetail(Id);
             if (!string.IsNullOrEmpty(model.ImageURL))
-                model.ImageURL = Commons.HostImage +"News/" + model.ImageURL;
+                model.ImageURL = Commons.HostImage + "News/" + model.ImageURL;
             return PartialView("_Edit", model);
         }
 
@@ -123,7 +132,7 @@ namespace CMS_Web.Areas.Admin.Controllers
                 }
                 if (!string.IsNullOrEmpty(model.ImageURL))
                 {
-                    model.ImageURL = model.ImageURL.Replace(Commons._PublicImages +"News/", "").Replace(Commons.Image272_259, "");
+                    model.ImageURL = model.ImageURL.Replace(Commons._PublicImages + "News/", "").Replace(Commons.Image272_259, "");
                 }
 
                 if (model.PictureUpload != null && model.PictureUpload.ContentLength > 0)
@@ -135,6 +144,14 @@ namespace CMS_Web.Areas.Admin.Controllers
                     model.PictureUpload = null;
                     photoByte = imgByte;
                 }
+
+                if (HttpContext.Session != null && HttpContext.Session["User"] != null)
+                {
+                    var user = (UserSession)HttpContext.Session["User"];
+                    model.CreatedBy = user.UserName;
+                    model.UpdatedBy = user.UserName;
+                }
+
                 var msg = "";
                 var result = _factory.CreateOrUpdate(model, ref msg);
                 if (result)
@@ -159,7 +176,7 @@ namespace CMS_Web.Areas.Admin.Controllers
                     }
                     return RedirectToAction("Index");
                 }
-                    
+
                 ModelState.AddModelError("Title", msg);
                 Response.StatusCode = (int)HttpStatusCode.BadRequest;
                 return PartialView("_Edit", model);
