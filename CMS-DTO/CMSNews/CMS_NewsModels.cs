@@ -1,5 +1,6 @@
 ﻿using CMS_DTO.CMSBase;
 using CMS_DTO.CMSCategories;
+using CMS_DTO.CMSCompany;
 using CMS_DTO.CMSProduct;
 using System;
 using System.Collections.Generic;
@@ -43,6 +44,7 @@ namespace CMS_DTO.CMSNews
         public CMS_NewsModels CMS_News { get; set; }
         public List<CMSCategoriesModels> ListCate { get; set; }
         public List<CMS_ProductsModels> ListProduct { get; set; }
+        public CMS_CompanyModels CompanyInfor { get; set; }
         public CMS_NewsViewModel()
         {
             ListNews = new List<CMS_NewsModels>();
@@ -50,6 +52,7 @@ namespace CMS_DTO.CMSNews
             CMS_News = new CMS_NewsModels();
             ListCate = new List<CMSCategoriesModels>();
             ListProduct = new List<CMS_ProductsModels>();
+            CompanyInfor = new CMS_CompanyModels();
         }
     }
 }

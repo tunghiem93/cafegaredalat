@@ -1,6 +1,7 @@
 ﻿using CMS_DTO.CMSNews;
 using CMS_Shared;
 using CMS_Shared.CMSCategories;
+using CMS_Shared.CMSCompanies;
 using CMS_Shared.CMSNews;
 using CMS_Shared.CMSProducts;
 using System;
@@ -16,11 +17,13 @@ namespace CMS_Web.Areas.Clients.Controllers
         private CMSNewsFactory _fac;
         private CMSCategoriesFactory _facCate;
         private CMSProductFactory _facPro;
+        private CMSCompaniesFactory _facCom;
         public NewsController()
         {
             _fac = new CMSNewsFactory();
             _facCate = new CMSCategoriesFactory();
             _facPro = new CMSProductFactory();
+            _facCom = new CMSCompaniesFactory();
         }
         // GET: Clients/News
         public ActionResult Index()
@@ -108,7 +111,8 @@ namespace CMS_Web.Areas.Clients.Controllers
                             }
                         });
                     }
-
+                    //For company infor
+                    model.CompanyInfor = _facCom.GetInfor();
                 }
             }
             catch(Exception ex)
