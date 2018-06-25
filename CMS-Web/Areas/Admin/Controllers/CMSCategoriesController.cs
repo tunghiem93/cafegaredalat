@@ -80,7 +80,7 @@ namespace CMS_Web.Areas.Admin.Controllers
                 {
                     if (!string.IsNullOrEmpty(model.ImageURL) && model.PictureByte != null)
                     {
-                        var path = Server.MapPath("~/Uploads/Categories/" + model.ImageURL);
+                        var path = Server.MapPath("~/Uploads/Categories" + model.ImageURL);
                         MemoryStream ms = new MemoryStream(photoByte, 0, photoByte.Length);
                         ms.Write(photoByte, 0, photoByte.Length);
                         System.Drawing.Image imageTmp = System.Drawing.Image.FromStream(ms, true);
@@ -196,14 +196,7 @@ namespace CMS_Web.Areas.Admin.Controllers
                 var msg = "";
                 var result = _factory.Delete(model.Id, ref msg);
                 if (result)
-                {
-                    if (System.IO.File.Exists(Server.MapPath("~/Uploads/Categories/" + model.ImageURL)))
-                    {
-                        ImageHelper.Me.TryDeleteImageUpdated(Server.MapPath("~/Uploads/Categories/" + model.ImageURL));
-                    }
-
                     return RedirectToAction("Index");
-                }
                 ModelState.AddModelError("CategoryName", msg);
                 Response.StatusCode = (int)HttpStatusCode.BadRequest;
                 return PartialView("_Delete", model);
