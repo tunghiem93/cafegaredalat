@@ -94,7 +94,7 @@ namespace CMS_Web.Areas.Clients.Controllers
                         if (!string.IsNullOrEmpty(x.ImageURL))
                             x.ImageURL = "~/Uploads/Employees/" + x.ImageURL;
                         else
-                            x.ImageURL = Commons.Image400_340;
+                            x.ImageURL = Commons.Image268_297;
 
                         if (string.IsNullOrEmpty(x.LinkFB))
                             x.LinkFB = "javascript:void(0)";
