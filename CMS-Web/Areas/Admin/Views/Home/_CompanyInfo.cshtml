@@ -2,12 +2,7 @@
 @using CMS_Shared
 
 @Html.HiddenFor(model => model.ComInfo.ID)
-@Html.HiddenFor(model => model.ComInfo.ImageURL)
-@*@if (!string.IsNullOrEmpty(Model.ComInfo.ID))
-{
-    @Html.Hidden("ImageURL", Model.ComInfo.ImageURL)
-}*@
-@*<input type="hidden" value="@Model.ComInfo.ImageURL" name="ComInfo.ImageURL" />*@
+@*@Html.HiddenFor(model => model.ComInfo.ImageURL)*@
 
 <div class="box-body" style="display: block;">
     <div class="form-group">
@@ -68,6 +63,14 @@
         <div class="col-md-6 col-sm-6 col-xs-12">
             @Html.TextBoxFor(model => model.ComInfo.Address, new { @class = "form-control", @placeholder = "địa chỉ", @autocomplete = "off" })
             @Html.ValidationMessageFor(model => model.ComInfo.Address, null, new { @class = "label label-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12 fontLighter">Giờ mở cửa:</label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            @Html.TextBoxFor(model => model.ComInfo.Businesshour, new { @class = "form-control", @placeholder = "8:00 sáng - 22:00 tối hàng ngày", @autocomplete = "off" })
+            @Html.ValidationMessageFor(model => model.ComInfo.Businesshour, null, new { @class = "label label-danger" })
         </div>
     </div>
 
