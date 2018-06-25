@@ -4,6 +4,10 @@
 @model CMS_DTO.CMSNews.CMS_NewsViewModel
 @using CMS_Shared;
 
+<!-- Breadcrumb Area Start-->
+@Html.Partial("_breadcrumb", new Dictionary<string, string> { { "A", "Trang chủ" }, { "B", "Blog" } })
+<!-- Breadcrumb Area End -->
+
 <!-- Blog Area Start -->
 <section class="blog-area ptb-100 blog-section">
     <div class="container">
