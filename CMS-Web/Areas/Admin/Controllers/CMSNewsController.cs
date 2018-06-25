@@ -76,8 +76,8 @@ namespace CMS_Web.Areas.Admin.Controllers
                 }                
 
                 var msg = "";
-                model.CreatedBy = CurrentUser.UserName;
-                model.UpdatedBy = CurrentUser.UserName;
+                model.CreatedBy = CurrentUser.UserId;
+                model.UpdatedBy = CurrentUser.UserId;
                 var result = _factory.CreateOrUpdate(model, ref msg);
                 if (result)
                 {
@@ -141,8 +141,8 @@ namespace CMS_Web.Areas.Admin.Controllers
                 }                
 
                 var msg = "";
-                model.CreatedBy = CurrentUser.UserName;
-                model.UpdatedBy = CurrentUser.UserName;
+                model.CreatedBy = CurrentUser.UserId;
+                model.UpdatedBy = CurrentUser.UserId;
                 var result = _factory.CreateOrUpdate(model, ref msg);
                 if (result)
                 {
