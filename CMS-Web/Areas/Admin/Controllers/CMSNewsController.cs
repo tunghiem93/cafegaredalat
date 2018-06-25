@@ -127,7 +127,7 @@ namespace CMS_Web.Areas.Admin.Controllers
                 }
                 if (!string.IsNullOrEmpty(model.ImageURL))
                 {
-                    model.ImageURL = model.ImageURL.Replace(Commons._PublicImages + "News/", "").Replace(Commons.Image272_259, "");
+                    model.ImageURL = model.ImageURL.Replace(Commons._PublicImages + "News/", "").Replace(Commons.Image370_238, "");
                 }
 
                 if (model.PictureUpload != null && model.PictureUpload.ContentLength > 0)
@@ -150,7 +150,7 @@ namespace CMS_Web.Areas.Admin.Controllers
                     {
                         if (!string.IsNullOrEmpty(temp))
                         {
-                            temp = temp.Replace(Commons._PublicImages + "News/", "").Replace(Commons.Image272_259, "");
+                            temp = temp.Replace(Commons._PublicImages + "News/", "").Replace(Commons.Image370_238, "");
                             temp = "~/Uploads/News/" + temp;
                             if (System.IO.File.Exists(Server.MapPath(temp)))
                             {

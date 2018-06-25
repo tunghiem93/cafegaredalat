@@ -15,11 +15,15 @@ namespace CMS_Shared
         public const string Image870_500 = "http://placehold.it/870x500";
         public const string Image400_340 = "http://placehold.it/400x340";
         public const string Image268_297 = "http://placehold.it/268x297";
+        public const string Image370_238 = "http://placehold.it/370x238";
 
         public static int WidthProduct = Convert.ToInt16(ConfigurationManager.AppSettings["WidthProduct"]);
         public static int HeightProduct = Convert.ToInt16(ConfigurationManager.AppSettings["HeightProduct"]);
         public static int WidthCate = Convert.ToInt16(ConfigurationManager.AppSettings["WidthCate"]);
         public static int HeightCate = Convert.ToInt16(ConfigurationManager.AppSettings["HeightCate"]);
+
+        public static int WidthEmp = Convert.ToInt16(ConfigurationManager.AppSettings["WidthEmp"]);
+        public static int HeightEmp = Convert.ToInt16(ConfigurationManager.AppSettings["HeightEmp"]);
 
         public static int WidthImageNews = Convert.ToInt16(ConfigurationManager.AppSettings["WidthImageNews"]);
         public static int HeightImageNews = Convert.ToInt16(ConfigurationManager.AppSettings["HeightImageNews"]);
