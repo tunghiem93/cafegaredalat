@@ -11,7 +11,7 @@ namespace CMS_Entity.Entity
         public string Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public int Level { get; set; }
+        public int? Level { get; set; }
         public string Position { get; set; }
         public string Employee_Address { get; set; }
         public string Employee_Phone { get; set; }
