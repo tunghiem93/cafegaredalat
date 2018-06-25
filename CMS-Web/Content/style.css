@@ -762,8 +762,10 @@
 .social-links .zmdi-facebook {background: #3b5998 none repeat scroll 0 0;}
 .social-links .zmdi-google-plus {background: #ea4335 none repeat scroll 0 0;}
 .social-links .zmdi-twitter {background: #1c9dec none repeat scroll 0 0;}
-.social-links .zmdi-pinterest {background: #cb1f27 none repeat scroll 0 0;}
+.social-links .zmdi-pinterest {background: #ea4335 none repeat scroll 0 0;}
 .social-links .zmdi-linkedin {background: #0177b5 none repeat scroll 0 0;}
+.social-links .zmdi-instagram {background: #cb1f27 none repeat scroll 0 0;}
+.social-links .zmdi-blogger {background: #0177b5 none repeat scroll 0 0;}
 .social-links {text-align: center;}
 .social-links a i:hover {background: #000000 none repeat scroll 0 0;}
 #contact-form .default-btn {
