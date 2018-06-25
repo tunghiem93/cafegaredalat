@@ -1,7 +1,13 @@
 ﻿@model CMS_DTO.CMSHome.CMSHomeModels
 @using CMS_Shared
 
-@Html.HiddenFor(model => model.ComInfo.ID);
+@Html.HiddenFor(model => model.ComInfo.ID)
+@Html.HiddenFor(model => model.ComInfo.ImageURL)
+@*@if (!string.IsNullOrEmpty(Model.ComInfo.ID))
+{
+    @Html.Hidden("ImageURL", Model.ComInfo.ImageURL)
+}*@
+@*<input type="hidden" value="@Model.ComInfo.ImageURL" name="ComInfo.ImageURL" />*@
 
 <div class="box-body" style="display: block;">
     <div class="form-group">
