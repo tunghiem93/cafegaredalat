@@ -7,11 +7,11 @@ using System.Web.Mvc;
 
 namespace CMS_Web.Areas.Clients.Controllers
 {
-    public class PolicyController : Controller
+    public class ProcessController : Controller
     {
         // GET: Clients/Policy
         private CMSPolicyFactory _fac;
-        public PolicyController()
+        public ProcessController()
         {
             _fac = new CMSPolicyFactory();
         }
