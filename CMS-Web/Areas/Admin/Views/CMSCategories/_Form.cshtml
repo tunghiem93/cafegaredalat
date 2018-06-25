@@ -10,17 +10,17 @@
 
 <div class="row form-horizontal form-label-left" style="margin-bottom:15px;">
     <fieldset>
-        <legend>THÔNG TIN CHUNG (Size hình : 470 X 400)</legend>
+        <legend>THÔNG TIN CHUNG (Size hình : 470px X 400px)</legend>
         <div class="form-group">
             <label class="control-label col-md-2 col-sm-2 col-xs-12 lineHeight fontLighter">Hình ảnh</label>
             <div class="col-md-2 col-sm-2 col-xs-12">
                 @if (!string.IsNullOrEmpty(Model.ImageURL))
             {
-                    <img id="upload-preview" src="@Model.ImageURL" height="100" width="100" class="" style="border-radius:100% !important" />
+                    <img id="upload-preview" src="@Model.ImageURL" height="100" width="100" class="" />
                 }
                 else
                 {
-                    <img id="upload-preview" class="" src="@Commons.Image200_100" height="100" width="100" style="border-radius:100% !important" />
+                    <img id="upload-preview" class="" src="@Commons.Image470_400" height="100" width="100" />
                 }
             </div>
             <div class="col-md-1 col-sm-3 col-xs-12" style="line-height:55px;">
