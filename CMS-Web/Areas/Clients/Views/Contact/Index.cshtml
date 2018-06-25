@@ -3,23 +3,86 @@
     Layout = "~/Areas/Clients/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Liên hệ";
 }
-@using CMS_Shared;
-
+@model CMS_DTO.CMSCompany.CMS_CompanyModels
 
 <!DOCTYPE html>
 <html>
 <body>
-   
-    <div class="">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.728203706996!2d106.70278871418297!3d10.832099761127058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175288a05fd79b9%3A0x4bb3a52725025b14!2zMTcxIELDrG5oIEzhu6NpLCBwaMaw4budbmcgMTMsIELDrG5oIFRo4bqhbmgsIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1527672281044" width="100%" height="500px" frameborder="0" style="border:0" allowfullscreen></iframe>
-    </div><br />
-
+    <!-- Breadcrumb Area Start-->
+    @Html.Partial("_breadcrumb", new Dictionary<string, string> { { "A", "Trang chủ" }, { "B", "Liên hệ" } })
+    <!-- Breadcrumb Area End -->
+    <!-- Contact Info Map Area Start -->
+    <section class="contact-info-map-area">
+        <!-- Google Map Start -->
+        <div class="google-map-area">
+            <!--  Map Section -->
+            <div id="contacts" class="map-area">
+                <div id="" style="width:100%;height:600px;filter: grayscale(100%);-webkit-filter: grayscale(100%);">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62474.34056022756!2d108.50099755187715!3d11.860014247459448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31711688c8381d1d%3A0x30da9d72be8f54a0!2zWHXDom4gVHLGsOG7nW5nLCBUcC4gxJDDoCBM4bqhdCwgTMOibSDEkOG7k25nLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1529907496168" frameborder="0" style="border:0; width: 100%; height: 100%;" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        <!-- Google Map End -->
+        <!-- Contact Information Container Start -->
+        <div class="contact-information-container">
+            <div class="single-information">
+                <span class="info-icon"><i class="zmdi zmdi-phone"></i></span>
+                <span class="info-text">09039845557<br />0933300602</span>
+            </div>
+            <div class="single-information">
+                <span class="info-icon"><i class="zmdi zmdi-globe"></i></span>
+                <span class="info-text">hxs@gmail.com<br />hxs@gmail.com</span>
+            </div>
+            <div class="single-information">
+                <span class="info-icon"><i class="zmdi zmdi-pin"></i></span>
+                <span class="info-text">TP. Đà Lạt<br />Xuân Trường</span>
+            </div>
+            <div class="contact-links">
+                <h3>Truy cập website</h3>
+                <div class="social-links">
+                    <a href="@Model.LinkFB"><i class="zmdi zmdi-facebook"></i></a>
+                    <a href="@Model.LinkBlog"><i class="zmdi zmdi-blogger"></i></a>
+                    <a href="@Model.LinkTwiter"><i class="zmdi zmdi-twitter"></i></a>
+                    <a href="@Model.LinkInstagram"><i class="zmdi zmdi-instagram"></i></a>
+                    <a href="#"><i class="zmdi zmdi-google-plus"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- Contact Information Container End -->
+    </section>
+    <!-- Contact Info Map Area End -->
+    <!-- Contact Form Area Start -->
+    @*<section class="contact-form-area pt-100 pb-90 blog-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <div class="section-title text-center">
+                            <h1>Get In Touch</h1>
+                            <span><img src="img/icons/koffee.png" alt=""></span>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <form id="contact-form" action="mail.php" method="post">
+                            <input type="text" name="name" placeholder="Name">
+                            <input type="email" name="email" placeholder="Email">
+                            <textarea name="message" cols="30" rows="10" placeholder="Message"></textarea>
+                            <button type="submit" class="default-btn"><span>SUBMIT</span></button>
+                        </form>
+                        <p class="form-messege"></p>
+                    </div>
+                </div>
+            </div>
+        </section>*@
+    <!-- Contact Form Area End -->
 </body>
 </html>
 
 <script type="text/javascript">
     $(document).ready(function () {
-        
+
     })
 </script>
 
