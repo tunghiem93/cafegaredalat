@@ -39,8 +39,7 @@ namespace CMS_Web.Areas.Clients.Controllers
             }
             return View(model);
         }
-
-        [HttpGet]
+        
         public ActionResult NewsDetail(string id)
         {
             var model = new CMS_NewsViewModel();
@@ -78,10 +77,10 @@ namespace CMS_Web.Areas.Clients.Controllers
                         });
                     }
                     //For categories
-                    var dataCate = _facCate.GetList().OrderByDescending(x => x.CreatedDate).Skip(0).Take(5).ToList();
-                    if (dataCate != null)
+                    model.ListCate = _facCate.GetList().OrderByDescending(x => x.CreatedDate).Skip(0).Take(5).ToList();
+                    if (model.ListCate != null)
                     {
-                        dataCate.ForEach(x =>
+                        model.ListCate.ForEach(x =>
                         {
                             if (!string.IsNullOrEmpty(x.ImageURL))
                             {
@@ -94,10 +93,10 @@ namespace CMS_Web.Areas.Clients.Controllers
                         });
                     }
                     //For Product
-                    var dataPro = _facPro.GetList().OrderByDescending(x => x.CreatedDate).Skip(0).Take(5).ToList();
-                    if (dataPro != null)
+                    model.ListProduct = _facPro.GetList().OrderByDescending(x => x.CreatedDate).Skip(0).Take(5).ToList();
+                    if (model.ListProduct != null)
                     {
-                        dataPro.ForEach(x =>
+                        model.ListProduct.ForEach(x =>
                         {
                             if (!string.IsNullOrEmpty(x.ImageURL))
                             {

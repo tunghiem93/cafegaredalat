@@ -27,14 +27,14 @@
                 {
                     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                         <div class="single-blog">
-                            <a href="/News/NewsDetail/@item.Id" class="blog-image">
+                            <a href="@Url.Action("NewsDetail", "News", new { id=item.Id })" class="blog-image">
                                 <img src="@item.ImageURL" alt="@item.Title">
                             </a>
                             <div class="blog-text text-center">
                                 <span>@item.CreatedDate.ToString("MM/dd/yyyy")</span>
                                 <h4><a href="blog-details.html">@string.Format("{0}", (item.Title.Length > 35) ? (item.Title.Substring(0, 35) + "...") : item.Title)</a></h4>
                                 <p>@string.Format("{0}", (item.Short_Description.Length > 150) ? (item.Short_Description.Substring(0, 150) + "...") : item.Short_Description)</p>
-                                <a href="/News/NewsDetail/@item.Id">Xem thêm</a>
+                                <a href="@Url.Action("NewsDetail", "News", new { id=item.Id })">Xem thêm</a>
                             </div>
                         </div>
                     </div>

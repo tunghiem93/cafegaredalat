@@ -180,5 +180,37 @@ namespace CMS_Shared.CMSCompanies
             catch (Exception ex) { }
             return null;
         }
+
+        public CMS_CompanyModels GetInfor()
+        {
+            try
+            {
+                using (var cxt = new CMS_Context())
+                {
+                    var data = cxt.CMS_Companies.Select(x => new CMS_CompanyModels
+                    {
+                        ID = x.Id,
+                        Name = x.Name,
+                        Description = x.Description,
+                        Email = x.Email,
+                        Phone = x.Phone,
+                        Address = x.Address,
+                        LinkBlog = x.LinkBlog,
+                        LinkTwiter = x.LinkTwiter,
+                        LinkInstagram = x.LinkInstagram,
+                        LinkFB = x.LinkFB,
+                        ImageURL = string.IsNullOrEmpty(x.ImageURL) ? "" : Commons.HostImage + x.ImageURL,
+                        IsActive = true,
+                        CreatedBy = x.CreatedBy,
+                        CreatedDate = DateTime.Now,
+                        UpdatedBy = x.UpdatedBy,
+                        UpdatedDate = DateTime.Now
+                    }).FirstOrDefault();
+                    return data;
+                }
+            }
+            catch (Exception ex) { }
+            return null;
+        }
     }
 }
