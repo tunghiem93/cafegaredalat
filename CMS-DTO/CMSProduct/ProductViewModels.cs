@@ -1,4 +1,6 @@
 ﻿using CMS_DTO.CMSCategories;
+using CMS_DTO.CMSCompany;
+using CMS_DTO.CMSNews;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +12,8 @@ namespace CMS_DTO.CMSProduct
     public class ProductViewModels
     {
         public List<CMS_ProductsModels> ListProduct { get; set; }
+        public CMS_CompanyModels Company { get; set; }
+        public List<CMS_NewsModels> ListNews { get; set; }
 
         public string CateID { get; set; }
         public List<CMSCategoriesModels> ListCate { get; set; }
@@ -22,6 +26,8 @@ namespace CMS_DTO.CMSProduct
         {
             ListCate = new List<CMSCategoriesModels>();
             ListProduct = new List<CMS_ProductsModels>();
+            Company = new CMS_CompanyModels();
+            ListNews = new List<CMS_NewsModels>();
         }
     }
 }

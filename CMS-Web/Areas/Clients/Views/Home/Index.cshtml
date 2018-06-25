@@ -41,28 +41,32 @@
 <!-- Background Area End -->
 
 <!-- Contact Info Start -->
-<section class="contact-area fix pb-30">
-    <div class="single-contact">
-        <div class="information text-center">
-            <h4><span>Phone : </span>+98 9875 5968 54</h4>
+@if (Model.Company != null)
+{
+    <section class="contact-area fix pb-30">
+        <div class="single-contact">
+            <div class="information text-center">
+                <h4><span>Điện thoại : </span>@Model.Company.Phone</h4>
+            </div>
         </div>
-    </div>
-    <div class="single-contact">
-        <div class="information text-center">
-            <h4><span>Email :</span>lorem@gmail.com</h4>
+        <div class="single-contact">
+            <div class="information text-center">
+                <h4><span>Email :</span>@Model.Company.Email</h4>
+            </div>
         </div>
-    </div>
-    <div class="single-contact">
-        <div class="information text-center">
-            <h4><span>Address :</span>Your Adress Here</h4>
+        <div class="single-contact">
+            <div class="information text-center">
+                <h4 title="@Model.Company.Address"><span>Địa chỉ :</span>@string.Format("{0}",!string.IsNullOrEmpty(Model.Company.Address) && Model.Company.Address.Length > 26 ? Model.Company.Address.Substring(0,25) + "..." : Model.Company.Address)</h4>
+            </div>
         </div>
-    </div>
-    <div class="single-contact">
-        <div class="information text-center">
-            <h4><span>Open Hour :</span>8.Am-6.Pm</h4>
+        <div class="single-contact">
+            <div class="information text-center">
+                <h4><span>Open Hour :</span>8.Am-6.Pm</h4>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+}
+
 <!-- Contact Info End -->
 
 <!-- About Area Start -->
@@ -81,7 +85,7 @@
             </div>
             <div class="col-md-6 col-sm-6 hidden-xs">
                 <div class="about-image">
-                    <img src="@Url.Content("~/Images/banner/1.jpg")" />
+                    <img src="@Url.Content("~/Images/banner/z1029925499025_787a87bae513ecdbbbc1e0abe096d346.jpg")" style="width:80% !important" />
                 </div>
             </div>
         </div>
@@ -103,54 +107,33 @@
         </div>
     </div>
     <div class="container-fluid">
-        <div class="special-item">
-            <div class="item-content">
-                <img src="@Url.Content("~/Uploads/Products/1.jpg")" alt="">
-                <div class="item-hover text-center">
-                    <div class="hover-text">
-                        <h1><a href="menu.html">Americano koffee</a></h1>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
-                        <span class="price">$20.00</span>
+        @if (Model != null && Model.ListCate != null && Model.ListCate.Any())
+        {
+            foreach (var item in Model.ListCate)
+            {
+                <div class="special-item">
+                    <div class="item-content">
+                        @if (string.IsNullOrEmpty(item.ImageURL))
+                        {
+                            <img src="@Url.Content("~/Images/banner/1.jpg")" alt="">
+                        }
+                        else
+                        {
+                            <img src="@Url.Content(item.ImageURL)" alt="">
+                            @*<img src="@Url.Content("~/Uploads/Products/1.jpg")" alt="">*@
+                        }
+                        
+                        <div class="item-hover text-center">
+                            <div class="hover-text">
+                                <h1><a href="javascript:void(0)">@item.CategoryName</a></h1>
+                                <p>@Html.Raw(item.Description)</p>
+                               @* <span class="price">$20.00</span>*@
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="special-item">
-            <div class="item-content">
-                <img src="@Url.Content("~/Uploads/Products/2.jpg")" alt="">
-                <div class="item-hover text-center">
-                    <div class="hover-text">
-                        <h1><a href="menu.html">Moccha koffee</a></h1>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
-                        <span class="price">$10.00</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="special-item">
-            <div class="item-content">
-                <img src="@Url.Content("~/Uploads/Products/3.jpg")" alt="">
-                <div class="item-hover text-center">
-                    <div class="hover-text">
-                        <h1><a href="menu.html">Black koffee</a></h1>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
-                        <span class="price">$15.00</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="special-item">
-            <div class="item-content">
-                <img src="@Url.Content("~/Uploads/Products/3.jpg")" alt="">
-                <div class="item-hover text-center">
-                    <div class="hover-text">
-                        <h1><a href="menu.html">Cold koffee</a></h1>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
-                        <span class="price">$15.00</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+            }
+        }
     </div>
 </section>
 <!-- Special Area End -->
@@ -183,88 +166,33 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-3 col-sm-4">
-                <div class="single-menu text-center">
-                    <div class="menu-image">
-                        <span>$20</span>
-                        <a href="menu.html"><img src="@Url.Content("~/Uploads/Products/s-1.jpg")" alt=""></a>
+            @if (Model.ListProduct != null && Model.ListProduct.Any())
+            {
+                foreach (var item in Model.ListProduct)
+                {
+                    <div class="col-md-3 col-sm-4">
+                        <div class="single-menu text-center">
+                            <div class="menu-image">
+                                <span>@item.ProductPrice</span>
+                                <a href="javascript:void(0)">
+                                    @if (string.IsNullOrEmpty(item.ImageURL))
+                                    {
+                                        <img src="@Url.Content("~/Images/banner/s-1.jpg")" />
+                                    }
+                                    else
+                                    {
+                                        <img src="@Url.Content(item.ImageURL)" alt="">
+                                    }
+                                </a>
+                            </div>
+                            <h4><a href="javascript:void(0)">@item.ProductName</a></h4>
+                            <span>@Html.Raw(item.Description) </span>
+                        </div>
                     </div>
-                    <h4><a href="menu.html">Americano koffee</a></h4>
-                    <span>Lorem Ipsum is simply dummy text </span>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-4">
-                <div class="single-menu text-center">
-                    <div class="menu-image">
-                        <span>$30</span>
-                        <a href="menu.html"><img src="@Url.Content("~/Uploads/Products/s-2.jpg")" alt=""></a>
-                    </div>
-                    <h4><a href="menu.html">Vanila Latta</a></h4>
-                    <span>Lorem Ipsum is simply dummy text </span>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-4">
-                <div class="single-menu text-center">
-                    <div class="menu-image">
-                        <span>$40</span>
-                        <a href="menu.html"><img src="@Url.Content("~/Uploads/Products/s-3.jpg")" alt=""></a>
-                    </div>
-                    <h4><a href="menu.html">Americano koffee</a></h4>
-                    <span>Lorem Ipsum is simply dummy text </span>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-4">
-                <div class="single-menu text-center">
-                    <div class="menu-image">
-                        <span>$50</span>
-                        <a href="menu.html"><img src="@Url.Content("~/Uploads/Products/s-4.jpg")" alt=""></a>
-                    </div>
-                    <h4><a href="menu.html">Cappuccino koffee</a></h4>
-                    <span>Lorem Ipsum is simply dummy text </span>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-4">
-                <div class="single-menu text-center">
-                    <div class="menu-image">
-                        <span>$20</span>
-                        <a href="menu.html"><img src="@Url.Content("~/Uploads/Products/s-1.jpg")" alt=""></a>
-                    </div>
-                    <h4><a href="menu.html">Americano koffee</a></h4>
-                    <span>Lorem Ipsum is simply dummy text </span>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-4">
-                <div class="single-menu text-center">
-                    <div class="menu-image">
-                        <span>$30</span>
-                        <a href="menu.html"><img src="@Url.Content("~/Uploads/Products/s-2.jpg")" alt=""></a>
-                    </div>
-                    <h4><a href="menu.html">Vanila Latta</a></h4>
-                    <span>Lorem Ipsum is simply dummy text </span>
-                </div>
-            </div>
-            <div class="col-md-3 hidden-sm">
-                <div class="single-menu text-center">
-                    <div class="menu-image">
-                        <span>$40</span>
-                        <a href="menu.html"><img src="@Url.Content("~/Uploads/Products/s-3.jpg")" alt=""></a>
-                    </div>
-                    <h4><a href="menu.html">Americano koffee</a></h4>
-                    <span>Lorem Ipsum is simply dummy text </span>
-                </div>
-            </div>
-            <div class="col-md-3 hidden-sm">
-                <div class="single-menu text-center">
-                    <div class="menu-image">
-                        <span>$50</span>
-                        <a href="menu.html"><img src="@Url.Content("~/Uploads/Products/s-4.jpg")" alt=""></a>
-                    </div>
-                    <h4><a href="menu.html">Cappuccino koffee</a></h4>
-                    <span>Lorem Ipsum is simply dummy text </span>
-                </div>
-            </div>
+                }
+            }
             <div class="col-md-12 text-center menu-btn col-sm-12 col-xs-12">
-                <a href="menu.html" class="default-btn"><span>View full menu</span></a>
+                <a href="javascript:void(0)" class="default-btn"><span>View full menu</span></a>
             </div>
         </div>
     </div>
@@ -281,7 +209,7 @@
                     <h1 class="event-title">30% Off <span>For First 3  Menu</span></h1>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived </p>
                     <div class="event-btn">
-                        <a href="reservation.html" class="default-btn"><span>Reservation Now</span></a>
+                        <a href="javascript:void(0)" class="default-btn"><span>Reservation Now</span></a>
                     </div>
                 </div>
             </div>
@@ -498,45 +426,32 @@
         </div>
         <div class="row">
             <div class="blog-carousel">
-                <div class="col-xs-12">
-                    <div class="single-blog">
-                        <a href="blog-details.html" class="blog-image">
-                            <img src="@Url.Content("~/Uploads/blog/1.jpg")" alt="">
-                        </a>
-                        <div class="blog-text text-center">
-                            <span>25 March 2017</span>
-                            <h4><a href="blog-details.html">Enjoy A Free koffee &amp; Tea Cup</a></h4>
-                            <p>Lorem Ipsum is simply dummy lor text of the printing and typesetting industry. Lorem Ipsum</p>
-                            <a href="blog-details.html">Read More</a>
+                @if (Model.ListNews != null && Model.ListNews.Any())
+                {
+                    foreach (var item in Model.ListNews)
+                    {
+                        <div class="col-xs-12">
+                            <div class="single-blog">
+                                <a href="@Url.Action("NewsDetail", "News", new {id=item.Id })" class="blog-image">
+                                    @if (string.IsNullOrEmpty(item.ImageURL))
+                                    {
+                                        <img src="@Url.Content("~/Images/banner/1.jpg")" alt="">
+                                    }
+                                    else
+                                    {
+                                        <img src="@Url.Content(item.ImageURL)" alt="">
+                                    }
+                                </a>
+                                <div class="blog-text text-center">
+                                    <span>@item.CreatedDate.ToString("dd/MM/yyyy")</span>
+                                    <h4><a href="@Url.Action("NewsDetail", "News", new {id=item.Id })">@item.Title</a></h4>
+                                    <p>@item.Short_Description</p>
+                                    <a href="@Url.Action("NewsDetail", "News", new {id=item.Id })">Xem Thêm</a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-xs-12">
-                    <div class="single-blog">
-                        <a href="blog-details.html" class="blog-image">
-                            <img src="@Url.Content("~/Uploads/blog/2.jpg")" alt="">
-                        </a>
-                        <div class="blog-text text-center">
-                            <span>17 April 2017</span>
-                            <h4><a href="blog-details.html">Good Idea's Start with great koffee</a></h4>
-                            <p>Lorem Ipsum is simply dummy lor text of the printing and typesetting industry. Lorem Ipsum</p>
-                            <a href="blog-details.html">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12">
-                    <div class="single-blog">
-                        <a href="blog-details.html" class="blog-image">
-                            <img src="@Url.Content("~/Uploads/blog/3.jpg")" alt="">
-                        </a>
-                        <div class="blog-text text-center">
-                            <span>10 July 2017</span>
-                            <h4><a href="blog-details.html">good koffee is a pleasure</a></h4>
-                            <p>Lorem Ipsum is simply dummy lor text of the printing and typesetting industry. Lorem Ipsum</p>
-                            <a href="blog-details.html">Read More</a>
-                        </div>
-                    </div>
-                </div>
+                    }
+                }
             </div>
         </div>
     </div>

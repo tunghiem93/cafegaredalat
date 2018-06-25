@@ -1,6 +1,9 @@
 ﻿using CMS_DTO.CMSProduct;
 using CMS_DTO.CMSSession;
 using CMS_Shared;
+using CMS_Shared.CMSCategories;
+using CMS_Shared.CMSCompanies;
+using CMS_Shared.CMSNews;
 using CMS_Shared.CMSProducts;
 using CMS_Shared.Utilities;
 using System;
@@ -14,80 +17,70 @@ namespace CMS_Web.Areas.Clients.Controllers
     public class HomeController : HQController
     {
         private CMSProductFactory _fac;
+        private CMSCompaniesFactory _facCom;
+        private CMSCategoriesFactory _facCate;
+        private CMSNewsFactory _facNews;
         public HomeController()
         {
             _fac = new CMSProductFactory();
+            _facCom = new CMSCompaniesFactory();
+            _facCate = new CMSCategoriesFactory();
+            _facNews = new CMSNewsFactory();
         }
         // GET: Clients/Home
-        public ActionResult Index(string id = "")
+        public ActionResult Index()
         {
             try
             {
                 ProductViewModels model = new ProductViewModels();
-                if (string.IsNullOrEmpty(id))
+
+                //Company
+                model.Company = _facCom.GetList().FirstOrDefault();
+
+                //Category
+                model.ListCate = _facCate.GetList().OrderByDescending(x => x.CreatedDate).Skip(0).Take(4).ToList();
+                if(model.ListCate != null && model.ListCate.Any())
                 {
-                    var data = _fac.GetList();
-                    if (data != null && data.Any())
-                    {
-                        var dataImage = _fac.GetListImage();
-                        data.ForEach(x =>
-                        {
-                            var _Image = dataImage.FirstOrDefault(y => y.ProductId.Equals(x.Id));
-                            if(_Image != null)
-                            {
-                                if (!string.IsNullOrEmpty(_Image.ImageURL))
-                                    x.ImageURL = Commons.HostImage + "Products/" + _Image.ImageURL;
-                            }
-                            
-                        });
-
-                        model.ListProduct = data.OrderByDescending(x => x.CreatedDate).Skip(0).Take(12).ToList();
-                        model.TotalProduct = data.Count;
-                        var pageIndex = 0;
-                        if (data.Count % 12 == 0)
-                            pageIndex = data.Count / 12;
-                        else
-                            pageIndex = Convert.ToInt16(data.Count / 12) + 1;
-
-                        if (pageIndex > 1)
-                            model.TotalPage = 2;
-                        else
-                            model.IsAddMore = true;
-                    }
-                }
-                else
-                {
-                    model.CateID = id;
-                    var data = _fac.GetList().Where(x => x.CategoryId.Equals(id)).ToList();
-
-                    if (data != null && data.Any())
-                    {
-                        var dataImage = _fac.GetListImage();
-                        data.ForEach(x =>
-                        {
-                            var _Image = dataImage.FirstOrDefault(y => y.ProductId.Equals(x.Id));
-                            if (_Image != null)
-                            {
-                                if (!string.IsNullOrEmpty(_Image.ImageURL))
-                                    x.ImageURL = Commons.HostImage + "Products/" + _Image.ImageURL;
-                            }
-                        });
-
-                        model.ListProduct = data.OrderByDescending(x => x.CreatedDate).Skip(0).Take(12).ToList();
-                        model.TotalProduct = data.Count;
-                        var pageIndex = 0;
-                        if (data.Count % 12 == 0)
-                            pageIndex = data.Count / 12;
-                        else
-                            pageIndex = Convert.ToInt16(data.Count / 12) + 1;
-
-                        if (pageIndex > 1)
-                            model.TotalPage = 2;
-                        else
-                            model.IsAddMore = true;
-                    }
+                    model.ListCate.ForEach(x =>
+                   {
+                       if(!string.IsNullOrEmpty(x.ImageURL))
+                            x.ImageURL = "~/Uploads/Categories/" + x.ImageURL;
+                   });
                 }
 
+                //Product
+                model.ListProduct = _fac.GetList().OrderByDescending(x => x.CreatedDate).Skip(0).Take(8).ToList();
+                var dataImage = _fac.GetListImage();
+                if(model.ListProduct != null && model.ListProduct.Any())
+                {
+                    model.ListProduct.ForEach(x =>
+                    {
+                        var _Image = dataImage.FirstOrDefault(z => z.ProductId.Equals(x.Id));
+                        if(_Image != null)
+                        {
+                            x.ImageURL = _Image.ImageURL;
+                            if (!string.IsNullOrEmpty(x.ImageURL))
+                            {
+                                x.ImageURL = "~/Uploads/Products/" + x.ImageURL;
+                            }
+                            else
+                            {
+                                x.ImageURL = "";
+                            }
+                        }
+                    });
+                }
+
+                //News
+                model.ListNews = _facNews.GetList().OrderByDescending(x => x.CreatedDate).Skip(0).Take(3).ToList();
+                if(model.ListNews != null && model.ListNews.Any())
+                {
+                    model.ListNews.ForEach(x =>
+                    {
+                        if (!string.IsNullOrEmpty(x.ImageURL))
+                            x.ImageURL = "~/Uploads/News/" + x.ImageURL;
+                    });
+                }
                 return View(model);
             }
             catch (Exception ex)
