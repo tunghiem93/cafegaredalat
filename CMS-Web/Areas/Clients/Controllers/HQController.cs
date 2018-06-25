@@ -22,7 +22,7 @@ namespace CMS_Web.Areas.Clients.Controllers
                 {
                     ListSlider.Add(new SliderSession
                     {
-                        ImageUrl = list[i]
+                        ImageUrl = "~/Uploads/Silder/" +  list[i]
                     });
                 }
             }

@@ -2,54 +2,40 @@
     Layout = "~/Areas/Clients/Views/Shared/_Layout.cshtml";
 }
 @model CMS_DTO.CMSProduct.ProductViewModels
-
+@{ 
+    var _ListSlider = Session["SliderSession"] as List<CMS_DTO.CMSSession.SliderSession>;
+}
 <!-- Background Area Start -->
 <section class="slider-area">
     <div class="slider-wrapper">
-        <div class="single-slide" style="background-image: url('@Url.Content("~/Uploads/Silder/1.jpg")');">
-            <div class="banner-content">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                            <div class="text-content-wrapper">
-                                <div class="text-content text-center">
-                                    <h3 class="pt-70">welcome our Koffee</h3>
-                                    <h1>Live Your Life With Energy</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras suscipit, est non tincidunt auctor, lacus lorem tincidunt est, sed ornare nisi est vel ligula.</p>
-                                    <div class="banner-btn">
-                                        <a class="default-btn" href="reservation.html">
-                                            <span>Reservation</span>
-                                        </a>
+        @if (_ListSlider != null && _ListSlider.Any())
+        {
+            foreach (var item in _ListSlider)
+            {
+                <div class="single-slide" style="background-image: url('@Url.Content(item.ImageUrl)');">
+                    <div class="banner-content">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                                    <div class="text-content-wrapper">
+                                        <div class="text-content text-center">
+                                            <h3 class="pt-70">welcome our Koffee</h3>
+                                            <h1>Live Your Life With Energy</h1>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras suscipit, est non tincidunt auctor, lacus lorem tincidunt est, sed ornare nisi est vel ligula.</p>
+                                            <div class="banner-btn">
+                                                <a class="default-btn" href="javascript:void(0)">
+                                                    <span>Reservation</span>
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="single-slide" style="background-image: url('@Url.Content("~/Uploads/Silder/1.jpg")');">
-            <div class="banner-content">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                            <div class="text-content-wrapper">
-                                <div class="text-content text-center">
-                                    <h3 class="pt-70">welcome our Koffee</h3>
-                                    <h1>Live Your Life With Energy</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras suscipit, est non tincidunt auctor, lacus lorem tincidunt est, sed ornare nisi est vel ligula.</p>
-                                    <div class="banner-btn">
-                                        <a class="default-btn" href="reservation.html">
-                                            <span>Reservation</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+            }
+        }
     </div>
 </section>
 <!-- Background Area End -->
