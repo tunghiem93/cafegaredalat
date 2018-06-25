@@ -20,13 +20,8 @@
                                     <div class="text-content-wrapper">
                                         <div class="text-content text-center">
                                             <h3 class="pt-70">welcome our Koffee</h3>
-                                            <h1>Live Your Life With Energy</h1>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras suscipit, est non tincidunt auctor, lacus lorem tincidunt est, sed ornare nisi est vel ligula.</p>
-                                            <div class="banner-btn">
-                                                <a class="default-btn" href="javascript:void(0)">
-                                                    <span>Reservation</span>
-                                                </a>
-                                            </div>
+                                            <h1>Cuộc sống và năng lượng của bạn</h1>
+                                            <p>Bạn có thể khám phá được tất cả các đồ uống cafe mà bạn muốn khi truy cập tới website của chúng tôi.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -76,16 +71,17 @@
             <div class="col-md-6 col-sm-6">
                 <div class="about-container">
                     <div class="about-text">
-                        <h3>About Koffee Shop</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown thing took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, this is remaining essential.</p>
-                        <p>Type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, this is remaining essential.</p>
-                        <a href="javascript:void(0)" class="default-btn"><span>Xem thêm</span></a>
+                        <h3>Hồ Xuân Sơn Coffee</h3>
+                        <p>Công ty TNHH Cà phê Hồ Xuân Sơn tiếng Anh ( Xuanson lake coffee ,.LTD ) có trụ sở tại thôn xuân sơn xã xuân trường TP Đà Lạt tỉnh Lâm đồng. Cty hoạt động chủ yếu trong lĩnh vực trồng và chế biến cafe Arabica, MoKa, Typica tại thung lũng hồ thủy lợi tự nhiên thuộc thôn Xuân Sơn xã Xuân trường TP Đà Lạt. Cty có cửa hàng trưng bày sản phẩm tại nhà ga cổ Đà Lạt 01 Quang Trung tp Đà Lạt và các cửa hàng bán sản phẩm ở Sài gòn và Hà Nội.
+                        </p>
+                        <p>Tiêu chí của Cty là đưa café Arabica thơm, tinh túy của xứ Cầu đất Đà Lạt đến tay người tiêu dùng ở các vùng nông thôn Việt Nam, cung cấp café nhân sạch cho các nhà sản xuất và chế biến café nguyên chất.</p>
+                        @*<a href="javascript:void(0)" class="default-btn"><span>Xem thêm</span></a>*@
                     </div>
                 </div>
             </div>
             <div class="col-md-6 col-sm-6 hidden-xs">
                 <div class="about-image">
-                    <img src="@Url.Content("~/Images/banner/z1029925499025_787a87bae513ecdbbbc1e0abe096d346.jpg")" style="width:80% !important" />
+                    <img src="@Url.Content("~/Images/banner/aboutUs.jpg")" style="width:80% !important" />
                 </div>
             </div>
         </div>
@@ -99,9 +95,9 @@
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="section-title text-center">
-                    <h1>Special koffee</h1>
+                    <h1>Coffee đặc biệt</h1>
                     <span><img src="@Url.Content("~/Images/banner/koffee.png")" alt=""></span>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since. </p>
+                    <p>Bạn có thể khám phá được tất cả các đồ uống cafe mà bạn muốn khi truy cập tới website của chúng tôi.</p>
                 </div>
             </div>
         </div>
@@ -124,7 +120,7 @@
                         
                         <div class="item-hover text-center">
                             <div class="hover-text">
-                                <h1><a href="javascript:void(0)">@item.CategoryName</a></h1>
+                                <h1><a href="javascript:void(0)">@string.Format("{0}", (item.CategoryName.Length > 18) ? (item.CategoryName.Substring(0, 18) + "...") : item.CategoryName)</a></h1>
                                 <p>@Html.Raw(item.Description)</p>
                                @* <span class="price">$20.00</span>*@
                             </div>
@@ -143,8 +139,8 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="advertise-text text-center">
-                    <h1>Start Your Day With koffee</h1>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley</p>
+                    <h1>Bắt đầu ngày mới với mục tiêu của bạn</h1>
+                    <p>Thưởng thức những sản phẩm mang đúng thương hiệu cà phê Đà Lạt mà chúng tôi mang đến cho bạn.</p>
                 </div>
             </div>
         </div>
@@ -158,9 +154,9 @@
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="section-title text-center">
-                    <h1>Our Menu</h1>
+                    <h1>Sản phẩm chúng tôi</h1>
                     <span><img src="@Url.Content("~/Images/banner/koffee.png")" alt=""></span>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since. </p>
+                    <p>Sản phẩm nguyên chất làm từ nguyên liệu được sản xuất trực tiếp tài thành phố Đà Lạt.</p>
                 </div>
             </div>
         </div>
@@ -202,12 +198,12 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="event-text text-center">
-                    <h1>UpComing Event</h1>
-                    <h1 class="event-title">30% Off <span>For First 3  Menu</span></h1>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived </p>
-                    <div class="event-btn">
+                    <h1>Tham gia để trải nghiệm cùng với chúng tôi</h1>
+                    <h1 class="event-title">Hợp tác<span>cùng sự phát triển lâu dài</span></h1>
+                    <p>Chúng tôi luôn cam kết mang lại sản phẩm uy tín - chất lượng - phục vụ nhanh chóng.</p>
+                    @*<div class="event-btn">
                         <a href="javascript:void(0)" class="default-btn"><span>Reservation Now</span></a>
-                    </div>
+                    </div>*@
                 </div>
             </div>
         </div>
@@ -221,9 +217,9 @@
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="section-title text-center">
-                    <h1>Our Team Member</h1>
+                    <h1>Thành viên chúng tôi</h1>
                     <span><img src="@Url.Content("~/Images/banner/koffee.png")" alt=""></span>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since. </p>
+                    <p>Trở thành đối tác với chúng tôi. Bạn có thể khám phá được tất cả các đồ uống cafe mà bạn muốn khi truy cập tới địa chỉ các cá nhân bên dưới.</p>
                 </div>
             </div>
         </div>
@@ -261,7 +257,7 @@
             <div class="col-md-6 col-sm-12">
                 <div class="testimonial-carousel">
                     <div class="single-tesimonial text-center">
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley</p>
+                        <p>Bạn có thể khám phá được tất cả các đồ uống cafe mà bạn muốn khi truy cập tới website của chúng tôi.</p>
                         <div class="client-rating">
                             <i class="zmdi zmdi-star"></i>
                             <i class="zmdi zmdi-star"></i>
@@ -269,10 +265,10 @@
                             <i class="zmdi zmdi-star"></i>
                             <i class="zmdi zmdi-star-half"></i>
                         </div>
-                        <h4><a href="#">Wiliam Harry</a></h4>
+                        <h4><a href="#">Nhà máy sản xuất</a></h4>
                     </div>
                     <div class="single-tesimonial text-center">
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley</p>
+                        <p>Bạn có thể khám phá được tất cả các đồ uống cafe mà bạn muốn khi truy cập tới website của chúng tôi.</p>
                         <div class="client-rating">
                             <i class="zmdi zmdi-star"></i>
                             <i class="zmdi zmdi-star"></i>
@@ -280,10 +276,10 @@
                             <i class="zmdi zmdi-star"></i>
                             <i class="zmdi zmdi-star-half"></i>
                         </div>
-                        <h4><a href="#">John Been Robi</a></h4>
+                        <h4><a href="#">Khu sản xuất</a></h4>
                     </div>
                     <div class="single-tesimonial text-center">
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley</p>
+                        <p>Thưởng thức những sản phẩm mang đúng thương hiệu cà phê Đà Lạt mà chúng tôi mang đến cho bạn.</p>
                         <div class="client-rating">
                             <i class="zmdi zmdi-star"></i>
                             <i class="zmdi zmdi-star"></i>
@@ -291,10 +287,10 @@
                             <i class="zmdi zmdi-star"></i>
                             <i class="zmdi zmdi-star-half"></i>
                         </div>
-                        <h4><a href="#">Rosalyn Golay</a></h4>
+                        <h4><a href="#">Thành phẩm</a></h4>
                     </div>
                     <div class="single-tesimonial text-center">
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley</p>
+                        <p>Sản phẩm nguyên chất làm từ nguyên liệu được sản xuất trực tiếp tài thành phố Đà Lạt.</p>
                         <div class="client-rating">
                             <i class="zmdi zmdi-star"></i>
                             <i class="zmdi zmdi-star"></i>
@@ -302,10 +298,10 @@
                             <i class="zmdi zmdi-star"></i>
                             <i class="zmdi zmdi-star-half"></i>
                         </div>
-                        <h4><a href="#">Wiliam Harry</a></h4>
+                        <h4><a href="#">Uy tín - chất lượng</a></h4>
                     </div>
                     <div class="single-tesimonial text-center">
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley</p>
+                        <p>Chúng tôi luôn cam kết mang lại sản phẩm uy tín - chất lượng - phục vụ nhanh chóng.</p>
                         <div class="client-rating">
                             <i class="zmdi zmdi-star"></i>
                             <i class="zmdi zmdi-star"></i>
@@ -313,7 +309,7 @@
                             <i class="zmdi zmdi-star"></i>
                             <i class="zmdi zmdi-star-half"></i>
                         </div>
-                        <h4><a href="#">Jesse E. Marshall</a></h4>
+                        <h4><a href="#">Phục vụ nhanh chóng</a></h4>
                     </div>
                 </div>
             </div>
@@ -323,42 +319,42 @@
                         <div class="col-md-4 col-sm-4">
                             <a class="single-client" href="#">
                                 <span class="client-table-cell">
-                                    <img src="@Url.Content("~/Images/client/1.png")" alt="">
+                                    <img src="@Url.Content("~/Images/client/1.jpg")" alt="" style="width: 175px; height: 110px; ">
                                 </span>
                             </a>
                         </div>
                         <div class="col-md-4 col-sm-4">
                             <a class="single-client" href="#">
                                 <span class="client-table-cell">
-                                    <img src="@Url.Content("~/Images/client/2.png")" alt="">
+                                    <img src="@Url.Content("~/Images/client/2.jpg")" alt="" style="width: 175px; height: 110px; ">
                                 </span>
                             </a>
                         </div>
                         <div class="col-md-4 col-sm-4">
                             <a class="single-client" href="#">
                                 <span class="client-table-cell">
-                                    <img src="@Url.Content("~/Images/client/3.png")" alt="">
+                                    <img src="@Url.Content("~/Images/client/3.jpg")" alt="" style="width: 175px; height: 110px; ">
                                 </span>
                             </a>
                         </div>
                         <div class="col-md-4 col-sm-4">
                             <a class="single-client" href="#">
                                 <span class="client-table-cell">
-                                    <img src="@Url.Content("~/Images/client/4.png")" alt="">
+                                    <img src="@Url.Content("~/Images/client/4.jpg")" alt="" style="width: 175px; height: 110px; ">
                                 </span>
                             </a>
                         </div>
                         <div class="col-md-4 col-sm-4">
                             <a class="single-client" href="#">
                                 <span class="client-table-cell">
-                                    <img src="@Url.Content("~/Images/client/5.png")" alt="">
+                                    <img src="@Url.Content("~/Images/client/5.jpg")" alt="" style="width: 175px; height: 110px; ">
                                 </span>
                             </a>
                         </div>
                         <div class="col-md-4 col-sm-4">
                             <a class="single-client" href="#">
                                 <span class="client-table-cell">
-                                    <img src="@Url.Content("~/Images/client/6.png")" alt="">
+                                    <img src="@Url.Content("~/Images/client/6.jpg")" alt="" style="width: 175px; height: 110px; ">
                                 </span>
                             </a>
                         </div>
@@ -376,9 +372,9 @@
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="section-title text-center">
-                    <h1>Our Blog</h1>
+                    <h1>Tin tức hàng ngày</h1>
                     <span><img src="@Url.Content("~/Images/banner/koffee.png")" alt=""></span>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since. </p>
+                    <p>Bạn có thể tìm hiểu được tất cả các thức uống mà bạn muốn khi bạn thường xuyên theo dõi cập nhập tin tức từ trang web của chúng tôi.</p>
                 </div>
             </div>
         </div>

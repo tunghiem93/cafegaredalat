@@ -4,15 +4,31 @@
 }
 @model CMS_DTO.CMSPolicy.CMS_PolicyModels
 
-<!DOCTYPE html>
-<html>
-<body>
-   
-</body>
-</html>
+		<!-- Breadcrumb Area Start-->
+<section class="breadcrumb-area overlay-2 bg-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumb-text">
+                    <h3>Our Menu</h3>
+                    <div class="breadcrumb-bar">
+                        <ul class="breadcrumb">
+                            <li><a href="@Url.Action("Index","Home")">Trang chủ</a></li>
+                            <li>Tiến trình</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Area End -->
+<section class="blog-details-area ptb-100 blog-section">
+    @Html.Raw(Model.Description)
+</section>
 
-<script type="text/javascript">
+    <script type="text/javascript">
         $(document).ready(function () {
-            
+
         })
-</script>
+    </script>

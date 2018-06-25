@@ -2,7 +2,7 @@
     Layout = "~/Areas/Clients/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Giới thiệu";
 }
-@model CMS_DTO.CMSCompany.CMS_CompanyModels
+@model CMS_DTO.CMSProduct.ProductViewModels
 <style>
 </style>
 
@@ -13,69 +13,44 @@
     @Html.Partial("_breadcrumb", new Dictionary<string, string> { { "A", "Trang chủ" }, { "B", "Giới thiệu" } })
     <!-- Breadcrumb Area End -->
     <!-- Contact Info Map Area Start -->
-    <section class="contact-info-map-area">
-        <!-- Google Map Start -->
-        <div class="google-map-area">
-            <!--  Map Section -->
-            <div id="contacts" class="map-area">
-                <div id="googleMap" style="width:100%;height:600px;filter: grayscale(100%);-webkit-filter: grayscale(100%);"></div>
-            </div>
-        </div>
-        <!-- Google Map End -->
-        <!-- Contact Information Container Start -->
-        <div class="contact-information-container">
-            <div class="single-information">
-                <span class="info-icon"><i class="zmdi zmdi-phone"></i></span>
-                <span class="info-text">+012 345 678 102<br>+012 345 678 102</span>
-            </div>
-            <div class="single-information">
-                <span class="info-icon"><i class="zmdi zmdi-globe"></i></span>
-                <span class="info-text">devitems@email.com<br>www.devitems.com</span>
-            </div>
-            <div class="single-information">
-                <span class="info-icon"><i class="zmdi zmdi-pin"></i></span>
-                <span class="info-text">Address goes here,<br>street,Crossroad123.</span>
-            </div>
-            <div class="contact-links">
-                <h3>Follow Us</h3>
-                <div class="social-links">
-                    <a href="#"><i class="zmdi zmdi-facebook"></i></a>
-                    <a href="#"><i class="zmdi zmdi-google-plus"></i></a>
-                    <a href="#"><i class="zmdi zmdi-twitter"></i></a>
-                    <a href="#"><i class="zmdi zmdi-pinterest"></i></a>
-                    <a href="#"><i class="zmdi zmdi-linkedin"></i></a>
-                </div>
-            </div>
-        </div>
-        <!-- Contact Information Container End -->
-    </section>
-    <!-- Contact Info Map Area End -->
-    <!-- Contact Form Area Start -->
-    <section class="contact-form-area pt-100 pb-90 blog-section">
+    <!-- Team Area Start -->
+    <section class="team-area ptb-100">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
                     <div class="section-title text-center">
-                        <h1>Get In Touch</h1>
-                        <span><img src="img/icons/koffee.png" alt=""></span>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since. </p>
+                        <h1>Thành viên chúng tôi</h1>
+                        <span><img src="@Url.Content("~/Images/banner/koffee.png")" alt=""></span>
+                        <p>Bạn có thể tìm hiểu được tất cả các thức uống mà bạn muốn khi bạn liên hệ trực tiếp tới các thành viên của công ty. </p>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <form id="contact-form" action="mail.php" method="post">
-                        <input type="text" name="name" placeholder="Name">
-                        <input type="email" name="email" placeholder="Email">
-                        <textarea name="message" cols="30" rows="10" placeholder="Message"></textarea>
-                        <button type="submit" class="default-btn"><span>SUBMIT</span></button>
-                    </form>
-                    <p class="form-messege"></p>
-                </div>
+                @if (Model.ListEmployee != null && Model.ListEmployee.Any())
+                {
+                    foreach (var item in Model.ListEmployee)
+                    {
+                        <div class="col-md-3 col-sm-4">
+                            <div class="single-team">
+                                <a href="#"><img src="@Url.Content(item.ImageURL)" alt=""></a>
+                                <div class="team-text text-center">
+                                    <h4><a href="#">@item.FullName</a></h4>
+                                    @* <h5>Senior Accountants</h5>*@
+                                    <div class="team-links">
+                                        <a href="javascript:void(0)"><i class="zmdi zmdi-facebook"></i></a>
+                                        <a href="javascript:void(0)"><i class="zmdi zmdi-twitter"></i></a>
+                                        <a href="javascript:void(0)"><i class="zmdi zmdi-dribbble"></i></a>
+                                        <a href="javascript:void(0)"><i class="zmdi zmdi-pinterest"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
             </div>
         </div>
     </section>
-    <!-- Contact Form Area End -->
+    <!-- Team Area End -->
 </body>
 </html>
 

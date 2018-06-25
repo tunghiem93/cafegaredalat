@@ -19,7 +19,7 @@
                                 <li><a href="@Url.Action("Index","Home")">Trang chủ</a></li>
                                 <li><a href="@Url.Action("Index","About")">Giới thiệu</a></li>
                                 <li><a href="@Url.Action("Index","Product")">Sản phẩm</a></li>
-                                <li><a href="@Url.Action("Index","Index")">Tiến trình</a></li>
+                                <li><a href="@Url.Action("Index","Policy")">Tiến trình</a></li>
                                 <li><a href="@Url.Action("Index","News")">Tin tức</a></li>
                                 <li><a href="@Url.Action("Index","Contact")">Liên hệ</a></li>
                             </ul>
@@ -36,8 +36,8 @@
                         </ul>
                         <div class="search">
                             <div class="search-form">
-                                <form id="search-form" action="#">
-                                    <input type="search" placeholder="Search here..." name="search" />
+                                <form id="search-form" action="/Clients/Home/Search" method="get">
+                                    <input type="search" placeholder="Tìm kiếm..." name="search" />
                                     <button type="submit">
                                         <span><i class="zmdi zmdi-search"></i></span>
                                     </button>

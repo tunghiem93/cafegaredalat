@@ -13,6 +13,7 @@ namespace CMS_Shared
         public const string Image200_100 = "http://placehold.it/200x100";
         public const string Image272_259 = "http://placehold.it/272x259";
         public const string Image870_500 = "http://placehold.it/870x500";
+        public const string Image400_340 = "http://placehold.it/400x340";
 
         public static int WidthProduct = Convert.ToInt16(ConfigurationManager.AppSettings["WidthProduct"]);
         public static int HeightProduct = Convert.ToInt16(ConfigurationManager.AppSettings["HeightProduct"]);
