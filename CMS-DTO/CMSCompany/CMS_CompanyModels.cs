@@ -28,6 +28,7 @@ namespace CMS_DTO.CMSCompany
         public byte[] PictureByte { get; set; }
         //[Required(ErrorMessage = "Làm ơn nhập họ!")]
         //public string FirstName { get; set; }
+        public string Businesshour { get; set; }
 
 
         public string CreatedBy { get; set; }

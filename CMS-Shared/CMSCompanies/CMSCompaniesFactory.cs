@@ -36,6 +36,7 @@ namespace CMS_Shared.CMSCompanies
                                 LinkFB = model.LinkFB,
                                 ImageURL = model.ImageURL,
                                 IsActive = true,
+                                BusinessHour = model.Businesshour,
                                 CreatedBy = model.CreatedBy,
                                 CreatedDate = DateTime.Now,
                                 UpdatedBy = model.UpdatedBy,
@@ -59,6 +60,7 @@ namespace CMS_Shared.CMSCompanies
                                 e.LinkFB = model.LinkFB;
                                 //e.ImageURL = model.ImageURL;
                                 e.IsActive = true;
+                                e.BusinessHour = model.Businesshour;
                                 e.UpdatedBy = model.UpdatedBy;
                                 e.UpdatedDate = DateTime.Now;
                             }
@@ -133,6 +135,7 @@ namespace CMS_Shared.CMSCompanies
                                                     LinkFB = x.LinkFB,
                                                     ImageURL = string.IsNullOrEmpty(x.ImageURL) ? "" : Commons.HostImage + x.ImageURL,
                                                     IsActive = true,
+                                                    Businesshour = x.BusinessHour,
                                                     CreatedBy = x.CreatedBy,
                                                     CreatedDate = DateTime.Now,
                                                     UpdatedBy = x.UpdatedBy,
@@ -165,6 +168,7 @@ namespace CMS_Shared.CMSCompanies
                         LinkFB = x.LinkFB,
                         ImageURL = string.IsNullOrEmpty(x.ImageURL) ? "" : Commons.HostImage + x.ImageURL,
                         IsActive = true,
+                        Businesshour = x.BusinessHour,
                         CreatedBy = x.CreatedBy,
                         CreatedDate = DateTime.Now,
                         UpdatedBy = x.UpdatedBy,
