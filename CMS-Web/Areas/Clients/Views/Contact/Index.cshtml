@@ -68,7 +68,7 @@
                             <input type="text" name="address" placeholder="Địa chỉ" value="@Html.Raw(Model.Address)">
                             <input type="text" name="name" placeholder="Số điện thoại" value="@Html.Raw(Model.Phone)">
                             <input type="email" name="email" placeholder="Email" value="@Html.Raw(Model.Email)">
-                            <textarea name="message" cols="30" rows="10" placeholder="Message">@Html.Raw(Model.Description)</textarea>
+                            <textarea name="message" cols="30" rows="10" placeholder="Message" id="areaDes">@Html.Raw(Model.Description)</textarea>
                         </form>
                         <p class="form-messege"></p>
                     </div>
@@ -106,8 +106,9 @@
 </html>
 
 <script type="text/javascript">
-    $(document).ready(function () {
+    $(document).ready(function () {        
         $('input').attr('readonly', true);
+        $('#areaDes').attr('readonly', true);
     })
 </script>
 
