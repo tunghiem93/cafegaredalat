@@ -49,7 +49,7 @@
                             foreach (var item in Model.ListCate)
                             {
                                 <li>
-                                    <a href="@Url.Action("CategoriesDetail", "Menus", new { id=item.Id })"><i class="zmdi zmdi-caret-left"></i>@string.Format("{0}", (item.CategoryName.Length > 25) ? (item.CategoryName.Substring(0, 25) + "...") : item.CategoryName)</a>
+                                    <a href="@Url.Action("Index", "Product", new { id=item.Id })"><i class="zmdi zmdi-caret-left"></i>@string.Format("{0}", (item.CategoryName.Length > 25) ? (item.CategoryName.Substring(0, 25) + "...") : item.CategoryName)</a>
                                 </li>
                             }
                         }

@@ -23,14 +23,22 @@ namespace CMS_Web.Areas.Clients.Controllers
             _fac = new CMSProductFactory();
         }
         // GET: Clients/Home
-        public ActionResult Index()
+        public ActionResult Index(string id="")
         {
             try
             {
                 ProductViewModels model = new ProductViewModels();
                 
                 //Product
-                model.ListProduct = _fac.GetList().OrderByDescending(x => x.CreatedDate).Skip(0).Take(8).ToList();
+                if(string.IsNullOrEmpty(id))
+                {
+                    model.ListProduct = _fac.GetList().OrderByDescending(x => x.CreatedDate).ToList();
+                }
+                else
+                {
+                    model.ListProduct = _fac.GetList().Where(x => x.CategoryId.Equals(id)).OrderByDescending(x => x.CreatedDate).ToList();
+                }
+                
                 var dataImage = _fac.GetListImage();
                 if(model.ListProduct != null && model.ListProduct.Any())
                 {
