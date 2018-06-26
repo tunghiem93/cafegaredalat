@@ -19,16 +19,16 @@
                     <h4 class="details-title">@itemDetail.Title</h4>
                     <h5 class="details-title">@itemDetail.Short_Description</h5>
                     <div class="post-information">
-                        <a href="#">@itemDetail.CreatedDate.ToString("MM/dd/yyyy")</a>
+                        <a href="javascript:void(0)">@itemDetail.CreatedDate.ToString("MM/dd/yyyy")</a>
                         @*<a href="#">Comments (60)</a>*@
                     </div>
                     
                     <div class="social-links fix">
-                        <a href="@string.Format("{0}", (Model.CompanyInfor.LinkFB != null) ? Model.CompanyInfor.LinkFB : "#")"><i class="zmdi zmdi-facebook"></i></a>
-                        <a href="@string.Format("{0}", (Model.CompanyInfor.LinkBlog != null) ? Model.CompanyInfor.LinkBlog : "#")"><i class="zmdi zmdi-blogger"></i></a>
-                        <a href="@string.Format("{0}", (Model.CompanyInfor.LinkTwiter != null) ? Model.CompanyInfor.LinkTwiter : "#")"><i class="zmdi zmdi-twitter"></i></a>
-                        <a href="@string.Format("{0}", (Model.CompanyInfor.LinkInstagram != null) ? Model.CompanyInfor.LinkInstagram : "#")"><i class="zmdi zmdi-instagram"></i></a>
-                        <a href="#"><i class="zmdi zmdi-google-plus"></i></a>
+                        <a href="@string.Format("{0}", (Model.CompanyInfor.LinkFB != null) ? Model.CompanyInfor.LinkFB : "javascript:void(0)")"><i class="zmdi zmdi-facebook"></i></a>
+                        <a href="@string.Format("{0}", (Model.CompanyInfor.LinkBlog != null) ? Model.CompanyInfor.LinkBlog : "javascript:void(0)")"><i class="zmdi zmdi-blogger"></i></a>
+                        <a href="@string.Format("{0}", (Model.CompanyInfor.LinkTwiter != null) ? Model.CompanyInfor.LinkTwiter : "javascript:void(0)")"><i class="zmdi zmdi-twitter"></i></a>
+                        <a href="@string.Format("{0}", (Model.CompanyInfor.LinkInstagram != null) ? Model.CompanyInfor.LinkInstagram : "javascript:void(0)")"><i class="zmdi zmdi-instagram"></i></a>
+                        <a href="javascript:void(0)"><i class="zmdi zmdi-google-plus"></i></a>
                     </div>
                 }
             </div>
@@ -66,8 +66,8 @@
                                 <div class="recent-text">
                                     <h5><a href="@Url.Action("NewsDetail", "News", new { id=item.Id })">@string.Format("{0}", (item.Title.Length > 25) ? (item.Title.Substring(0, 25) + "...") : item.Title)</a></h5>
                                     <div class="recent-info">
-                                        <a href="#">@string.Format("{0}", (item.CreatedBy.Length > 25) ? (item.CreatedBy.Substring(0, 25) + "...") : item.CreatedBy)</a>
-                                        <a href="#"><i class="zmdi zmdi-comments"></i>1</a>
+                                        <a href="javascript:void(0)">@string.Format("{0}", (item.CreatedBy.Length > 25) ? (item.CreatedBy.Substring(0, 25) + "...") : item.CreatedBy)</a>
+                                        <a href="javascript:void(0)"><i class="zmdi zmdi-comments"></i>1</a>
                                     </div>
                                 </div>
                             </div>
