@@ -27,7 +27,7 @@
                     <div class="col-md-3 col-sm-4">
                         <div class="single-menu text-center">
                             <div class="menu-image">
-                                <span>@item.ProductPrice</span>
+                                <span>@string.Format("{0}", item.ProductPrice.ToString("#,0")) VNĐ</span>
                                 <a href="javascript:void(0)">
                                     @if (string.IsNullOrEmpty(item.ImageURL))
                                     {
