@@ -34,10 +34,10 @@
             </div>
             <div class="col-lg-3 col-md-4">
                 <div class="widget">
-                    <form action="#" method="post">
+                    <form id="search-form" action="/Clients/Home/Search" method="get">
                         <div class="search-box">
                             <input type="text" placeholder="Tìm kiếm . . . .">
-                            <button type="button"><i class="zmdi zmdi-search"></i></button>
+                            <button type="submit"><i class="zmdi zmdi-search"></i></button>
                         </div>
                     </form>
                 </div>
@@ -64,7 +64,7 @@
                             <div class="recent-item">
                                 <a href="@Url.Action("NewsDetail", "News", new { id=item.Id })"><img src="@item.ImageURL" alt="@item.Title"></a>
                                 <div class="recent-text">
-                                    <h5><a href="blog.html">@string.Format("{0}", (item.Title.Length > 25) ? (item.Title.Substring(0, 25) + "...") : item.Title)</a></h5>
+                                    <h5><a href="@Url.Action("NewsDetail", "News", new { id=item.Id })">@string.Format("{0}", (item.Title.Length > 25) ? (item.Title.Substring(0, 25) + "...") : item.Title)</a></h5>
                                     <div class="recent-info">
                                         <a href="#">@string.Format("{0}", (item.CreatedBy.Length > 25) ? (item.CreatedBy.Substring(0, 25) + "...") : item.CreatedBy)</a>
                                         <a href="#"><i class="zmdi zmdi-comments"></i>1</a>
@@ -83,7 +83,7 @@
                                 foreach (var item in Model.ListProduct)
                                 {
                                     <li>
-                                        <a href="@Url.Action("Index", "Menus")"><img src="@item.ImageURL" alt="@item.ProductName"></a>
+                                        <a href="@Url.Action("Index", "Product")"><img src="@item.ImageURL" alt="@item.ProductName" style="width: 67px; height: 70px; "></a>
                                     </li>
                                 }
                             }

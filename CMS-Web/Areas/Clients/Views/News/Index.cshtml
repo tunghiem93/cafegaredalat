@@ -32,7 +32,7 @@
                             </a>
                             <div class="blog-text text-center">
                                 <span>@item.CreatedDate.ToString("MM/dd/yyyy")</span>
-                                <h4><a href="blog-details.html">@string.Format("{0}", (item.Title.Length > 35) ? (item.Title.Substring(0, 35) + "...") : item.Title)</a></h4>
+                                <h4><a href="@Url.Action("NewsDetail", "News", new { id=item.Id })">@string.Format("{0}", (item.Title.Length > 35) ? (item.Title.Substring(0, 35) + "...") : item.Title)</a></h4>
                                 <p>@string.Format("{0}", (item.Short_Description.Length > 150) ? (item.Short_Description.Substring(0, 150) + "...") : item.Short_Description)</p>
                                 <a href="@Url.Action("NewsDetail", "News", new { id=item.Id })">Xem thêm</a>
                             </div>

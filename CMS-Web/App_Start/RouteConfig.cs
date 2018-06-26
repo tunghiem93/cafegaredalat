@@ -15,10 +15,10 @@ namespace CMS_Web
             routes.MapRoute(
                  "Default", // Route name
                  "{controller}/{action}/{id}", // URL with parameters
-                 new { area = "Admin", controller = "CMSAccount", action = "Index", id = UrlParameter.Optional }, // Parameter defaults
+                 new { area = "Clients", controller = "Home", action = "Index", id = UrlParameter.Optional }, // Parameter defaults
                  null,
-                 new[] { "CMS_Web.Areas.Admin.Controllers" }
-             ).DataTokens.Add("area", "Admin");
+                 new[] { "CMS_Web.Areas.Clients.Controllers" }
+             ).DataTokens.Add("area", "Clients");
         }
     }
 }
