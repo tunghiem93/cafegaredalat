@@ -113,6 +113,8 @@ namespace CMS_Web.Areas.Clients.Controllers
                     }
                     //For company infor
                     model.CompanyInfor = _facCom.GetInfor();
+                    if (model.CompanyInfor == null)
+                        model.CompanyInfor = new CMS_DTO.CMSCompany.CMS_CompanyModels();
                 }
             }
             catch(Exception ex)
