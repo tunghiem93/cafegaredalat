@@ -19,6 +19,7 @@ namespace CMS_DTO.CMSEmployee
         [MaxLength(20, ErrorMessage = "Tên tối đa 20 kí tự")]
         public string LastName { get; set; }
         public string Employee_Address { get; set; }
+        [Required(ErrorMessage = "Vui lòng nhập sđt")]
         [RegularExpression("([0-9]+)", ErrorMessage = "Vui lòng nhập số")]
         public string Employee_Phone { get; set; }
         [Required(ErrorMessage = "Vui lòng nhập e-mail")]

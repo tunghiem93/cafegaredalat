@@ -75,6 +75,7 @@ namespace CMS_Web.Areas.Admin.Controllers
                 }
 
                 var msg = "";
+                var bkPass = model.Password;
                 model.Password = CommonHelper.Encrypt(model.Password);
                 var result = _factory.CreateOrUpdate(model, ref msg);
                 if (result)
@@ -90,7 +91,8 @@ namespace CMS_Web.Areas.Admin.Controllers
                     }
                     return RedirectToAction("Index");
                 }
-                   
+
+                model.Password = bkPass;
                 ModelState.AddModelError("FirstName", msg);
                 Response.StatusCode = (int)HttpStatusCode.BadRequest;
                 return PartialView("_Create", model);

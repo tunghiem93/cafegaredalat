@@ -79,7 +79,7 @@ namespace CMS_Shared.CMSEmployees
                     }
                     catch (Exception ex)
                     {
-                        msg = "Vui lòng kiểm tra đường truyền";
+                        msg = "Lỗi hệ thống! Vui lòng load lại.";
                         result = false;
                         trans.Rollback();
                     }
