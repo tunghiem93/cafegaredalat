@@ -277,8 +277,8 @@ namespace CMS_Web.Areas.Admin.Controllers
             byte[] photoByte = null;
             if (!ModelState.IsValid)
             {
-                Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                return RedirectToAction("Index");
+                //Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                return PartialView("_CompanyInfo", model);
             }
 
             if (model.ComInfo.PictureUpload != null && model.ComInfo.PictureUpload.ContentLength > 0)

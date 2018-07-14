@@ -36,7 +36,7 @@
 <!-- Background Area End -->
 
 <!-- Contact Info Start -->
-@if (Model.Company != null)
+@*@if (Model.Company != null)
 {
     <section class="contact-area fix pb-30">
         <div class="single-contact">
@@ -60,7 +60,7 @@
             </div>
         </div>
     </section>
-}
+}*@
 
 <!-- Contact Info End -->
 
@@ -169,7 +169,7 @@
                     <div class="col-md-3 col-sm-4">
                         <div class="single-menu text-center">
                             <div class="menu-image">
-                                <span>@string.Format("{0}", item.ProductPrice.ToString("#,0")) VNĐ</span>
+                                <span style="font-size: 14px !important; line-height: 40px !important; top: -25px !important; height: 39px !important; ">@string.Format("{0}", item.ProductPrice.ToString("#,0")) VNĐ</span>
                                 <a href="javascript:void(0)">
                                     @if (string.IsNullOrEmpty(item.ImageURL))
                                     {

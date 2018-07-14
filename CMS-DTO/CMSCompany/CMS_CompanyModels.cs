@@ -11,10 +11,15 @@ namespace CMS_DTO.CMSCompany
     public class CMS_CompanyModels
     {
         public string ID { get; set; }
+        [Required(ErrorMessage = "Vui lòng nhập tên")]
         public string Name { get; set; }
+        [Required(ErrorMessage = "Vui lòng nhập mô tả")]
         public string Description { get; set; }
+        [Required(ErrorMessage = "Vui lòng nhập email")]
         public string Email { get; set; }
+        [Required(ErrorMessage = "Vui lòng nhập số điện thoại")]
         public string Phone { get; set; }
+        [Required(ErrorMessage = "Vui lòng nhập địa chỉ")]
         public string Address { get; set; }
         public string LinkBlog { get; set; }
         public string LinkFB { get; set; }
@@ -40,6 +45,10 @@ namespace CMS_DTO.CMSCompany
             IsActive = true;
             UpdatedDate = DateTime.Now;
             CreatedDate = DateTime.Now;
+            LinkBlog = "";
+            LinkFB = "";
+            LinkTwiter = "";
+            LinkInstagram = "";
         }
     }
 }
